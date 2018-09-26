@@ -1,0 +1,30 @@
+body {
+  font-family: "Roboto", sans-serif; }
+
+h1, h2, h3, h4, b {
+  color: #333; }
+
+p {
+  color: #6d6d6d; }
+
+p.note {
+  color: red;
+  font-weight: bold; }
+
+ol li {
+  font-weight: bold;
+  font-size: 1.25em; }
+ol img {
+  width: 1000px;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+ol ul li {
+  font-weight: normal;
+  font-size: 1em; }
+
+.main-content .left.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px; }
+
+/*# sourceMappingURL=documentation.css.map */

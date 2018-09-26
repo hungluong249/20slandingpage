@@ -1,0 +1,174 @@
+/*
+===========================
+===========================
+
+HEADER STYLE
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+header{
+    width: 100%;
+    height: fit-content;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+
+    @include transition(300ms);
+
+    .container-fluid{
+        padding-top: 50px;
+        padding-left: 100px;
+        padding-right: 100px;
+
+        @include transition(300ms);
+
+        .nav-brand{
+            img{
+                width: 150px;
+
+                @include transition(300ms);
+            }
+        }
+
+        #expand-nav{
+
+            #btn-nav-expand{
+
+                &:hover{
+                    cursor: pointer;
+                }
+
+                @include transition(300ms);
+
+                span{
+                    &.nav-icon{
+                        width: 25px;
+                        height: 5px;
+
+                        background-color: #fff;
+
+                        display: block;
+
+                        position: relative;
+
+                        @include transition(300ms);
+
+                        &:before, &:after{
+                            content: '';
+                            display:block;
+                            width:30px;
+                            height:5px;
+                            background-color: #fff;
+                            position: absolute;
+
+                            @include transition(300ms);
+                        }
+
+                        &:before {
+                            margin-top:-10px;
+                        }
+
+                        &:after {
+                            margin-top:10px;
+                        }
+                    }
+                }
+
+                &.active{
+
+                    @include transition(300ms);
+
+                    span{
+                        &.nav-icon{
+                            background-color: transparent;
+
+                            &:before {
+                                margin-top:0;
+                                transform:rotate(45deg);
+                            }
+
+                            &:after {
+                                margin-top:0;
+                                transform:rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.active{
+        @include gradient-primary(#EF4625, #F2AB1E);
+        filter: opacity(85%);
+
+        @include transition(300ms);
+
+        .container-fluid {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 50px;
+            padding-right: 50px;
+
+            @include transition(300ms);
+
+            .nav-brand {
+                img {
+                    width: 70px;
+
+                    @include transition(300ms);
+                }
+            }
+        }
+    }
+}
+
+/*
+=========================================
+SMALL DESKTOPS (UNDER 1600px)
+=========================================
+ */
+
+@media (max-width: 1600px) and (min-width: 1025px){
+
+}
+
+/*
+=========================================
+TABLETS (Under 1024px)
+=========================================
+ */
+
+@media (max-width: 1024px) and (min-width: 993px){
+
+}
+
+/*
+=========================================
+MOBILE DEVICES (Under 768px)
+=========================================
+ */
+
+@media (max-width: 768px) {
+    header{
+        .container-fluid{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        &.active{
+            .container-fluid {
+                padding-top: 7px;
+                padding-bottom: 7px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+    }
+}

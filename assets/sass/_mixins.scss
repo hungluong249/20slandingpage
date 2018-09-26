@@ -1,0 +1,49 @@
+/*
+===========================
+===========================
+
+MAIN MINXINS
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+@mixin gradient-primary($start, $end){
+    background: $start;
+    background: -moz-linear-gradient(left, $start 0%, $end 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, $start), color-stop(100%, $end));
+    background: -webkit-linear-gradient(left, $start 0%, $end 100%);
+    background: -o-linear-gradient(left, $start 0%, $end 100%);
+    background: -ms-linear-gradient(left, $start 0%, $end 100%);
+    background: linear-gradient(to right, $start 0%, $end 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start', endColorstr='$end', GradientType=1 );
+}
+
+@mixin gradient-fadeInBack(){
+    background: rgba(0,0,0,0);
+    background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(107,107,107,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(107,107,107,1)));
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(107,107,107,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(107,107,107,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(107,107,107,1) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(107,107,107,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#6b6b6b', GradientType=1 );
+}
+
+@mixin makeItCenter{
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@mixin transition($duration){
+    -webkit-transition: all ease-in-out $duration;
+    -moz-transition: all ease-in-out $duration;
+    -ms-transition: all ease-in-out $duration;
+    -o-transition: all ease-in-out $duration;
+    transition: all ease-in-out $duration;
+}

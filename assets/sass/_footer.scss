@@ -1,0 +1,32 @@
+/*
+===========================
+===========================
+
+FOOTER STYLE
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+footer{
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include gradient-primary(#EF4625, #F2AB1E);
+
+    .col{
+        color: #fff;
+
+        &.left{
+
+        }
+
+        &.right{
+            a{
+                color: #fff;
+            }
+        }
+    }
+}

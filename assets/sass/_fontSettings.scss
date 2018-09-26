@@ -1,0 +1,189 @@
+/*
+===========================
+===========================
+
+MAIN FONT SETTINGS
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+body{
+    font-weight: 400;
+    font-size: 1em;
+}
+
+h1{
+    font-weight: 700;
+
+    &.title-xlg{
+        font-size: 14.375rem;
+    }
+
+    &.title-lg{
+        font-size: 4.375rem;
+    }
+}
+
+h2{
+    font-weight: 700;
+
+    &.title-md{
+        font-size: 2.1875rem;
+    }
+
+    &.title-post{
+        font-size: 1.875rem;
+    }
+
+    &.heading-post{
+        font-size: 1.875rem;
+    }
+}
+
+h3{
+    font-weight: 700;
+
+    &.title-sm{
+        font-size: 1.125rem;
+    }
+
+    &.subtitle-md{
+        font-weight: 400;
+        font-size: 1.125rem;
+
+        text-transform: uppercase;
+    }
+}
+
+h4{
+    &.subtitle-sm{
+        font-weight: 400;
+        font-size: 0.875rem;
+    }
+}
+
+p{
+    &.paragraph{
+        font-size: 1rem;
+    }
+
+    &.paragraph-md{
+        font-size: 1.125rem;
+    }
+}
+
+.nav-items{
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.image-caption{
+    font-size: 0.875rem;
+}
+
+.btn{
+    &.btn-primary{
+        font-weight: 700;
+        font-size: 1.125rem;
+    }
+}
+
+.text-wrapper{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    //line-height: 1.5em;
+    //height: 3em;
+    //-webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/*
+=========================================
+SMALL DESKTOPS (UNDER 1600px)
+=========================================
+ */
+
+@media (max-width: 1600px) and (min-width: 1025px) {
+    h1{
+        &.title-xlg{
+            font-size: 10rem;
+        }
+
+        &.title-lg{
+            font-size: 3rem;
+        }
+    }
+
+    h2{
+        &.title-md{
+            font-size: 1.875rem;
+        }
+    }
+}
+
+/*
+=========================================
+TABLETS (Under 1024px)
+=========================================
+ */
+
+@media (max-width: 1024px) and (min-width: 993px){
+    h1{
+        &.title-xlg{
+            font-size: 10rem;
+        }
+
+        &.title-lg{
+            font-size: 3rem;
+        }
+    }
+
+    h2{
+        &.title-md{
+            font-size: 1.75rem;
+        }
+    }
+}
+
+/*
+=========================================
+VERTICAL TABLETS (Under 992px)
+=========================================
+ */
+
+@media (max-width: 992px) and (min-width: 768px){
+    h1{
+        &.title-xlg{
+            font-size: 10rem;
+        }
+
+        &.title-lg{
+            font-size: 3rem;
+        }
+    }
+}
+
+/*
+=========================================
+MOBILE DEVICES (Under 768px)
+=========================================
+ */
+
+@media (max-width: 768px){
+    h1{
+        &.title-xlg{
+            font-size: 10rem;
+        }
+
+        &.title-lg{
+            font-size: 2.75rem;
+        }
+    }
+}
+

@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/assets/js/admin/script.min.js" />
+        <item url="file://$PROJECT_DIR$/assets/js/script.min.js" />
+        <item url="file://$PROJECT_DIR$/assets/js/slideBrand.min.js" />
+        <item url="file://$PROJECT_DIR$/assets/lib/lightbox/js/lightbox.min.js" />
+        <item url="file://$PROJECT_DIR$/assets/lib/owl-carousel/js/owl.carousel.min.js" />
+        <item url="file://$PROJECT_DIR$/assets/lib/owl-carousel/js/owl.carousel.min.min.js" />
+        <item url="file://$PROJECT_DIR$/assets/lib/wow/wow.min.min.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/assets/js/admin/script.min.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/script.min.js" />
+      <root url="file://$PROJECT_DIR$/assets/js/slideBrand.min.js" />
+      <root url="file://$PROJECT_DIR$/assets/lib/lightbox/js/lightbox.min.js" />
+      <root url="file://$PROJECT_DIR$/assets/lib/owl-carousel/js/owl.carousel.min.js" />
+      <root url="file://$PROJECT_DIR$/assets/lib/owl-carousel/js/owl.carousel.min.min.js" />
+      <root url="file://$PROJECT_DIR$/assets/lib/wow/wow.min.min.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
