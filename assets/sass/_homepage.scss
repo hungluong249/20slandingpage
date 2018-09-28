@@ -17,7 +17,7 @@ Author: hung.luong@matocreative.vn
     position: fixed;
     top: 0;
     left: 100%;
-    z-index: 1049;
+    z-index: 1039;
 
     @include gradient-primary(#EF4625, #F2AB1E);
 
@@ -442,13 +442,15 @@ Author: hung.luong@matocreative.vn
 
             #sliderTop{
                 width: 40%;
-                height: 50vh;
+                height: 30vh;
 
                 position: absolute;
                 top: 0;
                 left: 16.66%;
 
                 ul{
+                    height: 100%;
+                    margin-bottom: 0;
                 }
             }
 
@@ -475,22 +477,95 @@ Author: hung.luong@matocreative.vn
             }
 
             .content{
+                width: 100%;
+                height: 50%;
+
+                position: absolute;
+                top: 30%;
+                left: 0;
+                z-index: 4;
+
+                padding-left: 100px;
+                padding-right: 100px;
+
+                > .row{
+                    height: 100%;
+
+                    padding-top: 50px;
+
+                    > .left{
+                        h1{
+                            color: $primary;
+                        }
+
+                        p{
+                            color: $gray-light;
+                        }
+                    }
+
+                    > .right{
+                        margin-top: 50px;
+
+                        .slide{
+                            width: 100%;
+                            height: 300px;
+
+                            .carousel-inner{
+                                .carousel-item{
+                                    .row{
+                                        width: 100%;
+
+                                        .btn-link {
+                                            width: 100%;
+
+                                            text-align: center;
+                                            white-space: normal;
+
+                                            color: $gray-light;
+                                            border: 1px solid $gray-light;
+                                            border-radius: 7px;
+
+                                            @include transition(300ms);
+
+                                            &:hover {
+                                                color: $gray-dark;
+                                                border: 1px solid $gray-dark;
+
+                                                @include transition(300ms);
+                                            }
+
+                                            &.active{
+                                                color: $gray-dark;
+                                                border: 1px solid $gray-dark;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                #step-02{
+                                    .btn-link{
+
+                                    }
+                                }
+                            }
+                        }
+
+                        .survey-control{
+                            padding-top: 30px;
+                        }
+                    }
+                }
+            }
+
+            /*
+
+            .content{
                 width: 50%;
 
                 position: absolute;
                 top: calc(50vh - 100px);
                 left: calc(16.66% - 200px);
                 z-index: 4;
-
-                h1{
-                    color: $primary;
-
-                    margin-bottom: 50px;
-                }
-
-                p{
-                    color: $gray-light;
-                }
             }
 
             .quest{
@@ -532,6 +607,13 @@ Author: hung.luong@matocreative.vn
 
                                 @include transition(300ms);
                             }
+
+                            &.active{
+                                color: $gray-dark;
+                                border: 1px solid $gray-dark;
+
+                                @include transition(300ms);
+                            }
                         }
 
                         &.active{
@@ -554,6 +636,8 @@ Author: hung.luong@matocreative.vn
                     }
                 }
             }
+
+            */
         }
     }
 }

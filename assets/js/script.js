@@ -4,7 +4,7 @@ $(document).ready(function(){
     //Nav Side Activate
     var navStatus = 0;
     
-    console.log(navStatus);
+    //console.log(navStatus);
     
     $('#btn-nav-expand').click(function(){
         
@@ -73,50 +73,72 @@ $(document).ready(function(){
     });
     
     //Career Section
-    $('#career .quest #step-01').addClass('active');
-    $('#career #sliderTop ul li:first-of-type').addClass('active');
-    $('#career #sliderBottom ul li:first-of-type').addClass('active');
-    
-    $('#career .quest #step-01 button[value="1"]').click(function(){
-        $('#career .quest #step-01').removeClass('active');
-        $('#career .quest #step-02').addClass('active');
-    
-        $('#career #sliderTop ul li:first-of-type').removeClass('active');
-        $('#career #sliderBottom ul li:first-of-type').removeClass('active');
-    
-        $('#career #sliderTop ul li:nth-of-type(2)').addClass('active');
-        $('#career #sliderBottom ul li:nth-of-type(2').addClass('active');
-    })
-    
-    $('#career .quest #step-02 button').click(function(){
-        $('#career .quest #step-02').removeClass('active');
-        $('#career .quest #step-03').addClass('active');
-    
-        $('#career #sliderTop ul li:nth-of-type(2)').removeClass('active');
-        $('#career #sliderBottom ul li:nth-of-type(2)').removeClass('active');
-    
-        $('#career #sliderTop ul li:last-of-type').addClass('active');
-        $('#career #sliderBottom ul li:last-of-type').addClass('active');
-    
-        $('button#sendMessage').removeAttr("disabled");
-    })
-    
-    $('#career .quest #surveyReset').click(function(){
         $('#career .quest #step-01').addClass('active');
         $('#career #sliderTop ul li:first-of-type').addClass('active');
         $('#career #sliderBottom ul li:first-of-type').addClass('active');
-    
-        $('#career .quest #step-02').removeClass('active');
-        $('#career .quest #step-03').removeClass('active');
-    
-        $('#career #sliderTop ul li:nth-of-type(2)').removeClass('active');
-        $('#career #sliderBottom ul li:nth-of-type(2)').removeClass('active');
-    
-        $('#career #sliderTop ul li:last-of-type').removeClass('active');
-        $('#career #sliderBottom ul li:last-of-type').removeClass('active');
-    
         
-    })
+        // Make Bootstrap Carousel not Looping
+        
+        var $this = $('#surveySlider');
+        $this.carousel({
+            interval: false
+        });
+        
+        // Set disabled first item
+        if ( $('#surveySlider .carousel-item:first-of-type').hasClass('active') ){
+            $('button#surveyPrev').attr('href' , '');
+            $('button#surveyPrev').addClass('disabled');
+        } else {
+            $('button#surveyPrev').attr('href' , '#surveySlider');
+            $('button#surveyPrev').removeClass('disabled');
+        }
+        
+        $('#surveySlider').on('slid.bs.carousel', function () {
+            // Work with first item
+            if ( $('#surveySlider .carousel-item:first-of-type').hasClass('active') ){
+                $('button#surveyPrev').attr('href' , '');
+                $('button#surveyPrev').addClass('disabled');
+            } else {
+                $('button#surveyPrev').attr('href' , '#surveySlider');
+                $('button#surveyPrev').removeClass('disabled');
+                
+            }
+            
+            // Work with last item
+            if ( $('#surveySlider .carousel-item:last-of-type').hasClass('active') ){
+                $('button#surveyNext').attr('href' , '');
+                $('button#surveyNext').addClass('disabled');
+                
+                $('button#sendMessage').removeClass('disabled');
+                $('button#sendMessage').attr('data-target' , '#formModal');
+            } else {
+                $('button#surveyNext').attr('href' , '#surveySlider');
+                $('button#surveyNext').removeClass('disabled');
+                
+                $('button#sendMessage').addClass('disabled');
+                $('button#sendMessage').attr('data-target' , '');
+            }
+        });
+        
+        //Reset Slider
+        
+        $('button#surveyReset').click(function(){
+            $this.carousel(0);
+        });
+        
+        //Activate selection
+    
+        var check = 0;
+        $('#career .btn-link').click(function(){
+            
+            if( check == 0 ){
+                $(this).addClass('active');
+                check = 1;
+            } else{
+                $(this).removeClass('active');
+                check = 0;
+            }
+        })
 });
 
 
