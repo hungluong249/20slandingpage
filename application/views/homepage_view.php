@@ -301,105 +301,122 @@
 		</div>
 
 		<div class="content">
-			<h1 class="title-lg">
-				CƠ HỘI <br>
-				NGHỀ NGHIỆP
-			</h1>
 			<div class="row">
-				<div class="col ">
-					<p class="paragraph">
-						Tại 20sections và Division X mỗi thành viên đều là những mảnh ghép vô cùng quan trọng, tại đây chúng ta đối đầu với thách thức và thử thách sự phi thường của bản thân.
-					</p>
+				<div class="left col">
+					<h1 class="title-lg">
+						CƠ HỘI <br>
+						NGHỀ NGHIỆP
+					</h1>
+					<div class="row">
+						<div class="col ">
+							<p class="paragraph">
+								Tại 20sections và Division X mỗi thành viên đều là những mảnh ghép vô cùng quan trọng, tại đây chúng ta đối đầu với thách thức và thử thách sự phi thường của bản thân.
+							</p>
 
-					<p class="paragraph">
-						Dù bạn ở vị trí công việc, thuộc team nào bạn cũng đang đóng góp sức mình để tạo ra ảnh hưởng tới hàng triệu người Việt trẻ.
-					</p>
+							<p class="paragraph">
+								Dù bạn ở vị trí công việc, thuộc team nào bạn cũng đang đóng góp sức mình để tạo ra ảnh hưởng tới hàng triệu người Việt trẻ.
+							</p>
+						</div>
+
+						<div class="col ">
+							<p class="paragraph">
+								Không có giới hạn ở DivisionX, tại đây không có gì là bất khả thi, DivisionX là môi trường để bạn phát triển và khai phá những tiềm năng của bản thân và thách thức giới hạn sáng tạo
+							</p>
+						</div>
+					</div>
 				</div>
 
-				<div class="col ">
-					<p class="paragraph">
-						Không có giới hạn ở DivisionX, tại đây không có gì là bất khả thi, DivisionX là môi trường để bạn phát triển và khai phá những tiềm năng của bản thân và thách thức giới hạn sáng tạo
-					</p>
+				<div class="right col">
+					<div id="surveySlider" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="step" id="step-01">
+									<h3 class="title-sm">
+										1/ Bạn ấn tượng bởi tầm nhìn và sứ mệnh của chúng tôi?
+									</h3>
+									<div class="row">
+										<div class="item col-md-4">
+											<button class="btn btn-link" role="button" value="1">
+												<h2 class="title-md">Yes</h2>
+											</button>
+										</div>
+
+										<div class="item col-md-4">
+											<button class="btn btn-link" type="button" value="0" data-toggle="modal" data-target="#messageNo">
+												<h2 class="title-md">No</h2>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="step" id="step-02">
+									<h3 class="title-sm">
+										2. Bạn phù hợp với giá trị của chúng tôi
+									</h3>
+									<div class="row">
+										<div class="item col-md-4">
+											<button class="btn btn-link" role="button" value="1">
+												<h3 class="title-sm">Táo bạo:</h3>
+												<p class="paragraph">
+													Không ngại dư luận, không ngại rào cản, luôn thách thức các giới hạn
+												</p>
+											</button>
+										</div>
+
+										<div class="item col-md-4">
+											<button class="btn btn-link" role="button" value="2">
+												<h3 class="title-sm">Tiến hoá</h3>
+												<p class="paragraph">
+													Sản phẩm của hôm nay đã tốt hơn hôm qua nhưng không thể bằng sản phẩm của ngày mai
+												</p>
+											</button>
+										</div>
+
+										<div class="item col-md-4">
+											<button class="btn btn-link" role="button" value="3">
+												<h3 class="title-sm">Khác biệt</h3>
+												<p class="paragraph">
+													Muốn khác biệt, luôn khác biệt. Nghĩ và làm như một người tiên phong, một cá nhân xuất chúng
+												</p>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="step" id="step-03">
+									<h3 class="title-sm">
+										3. Bạn phù hợp với team nào
+									</h3>
+									<div class="row">
+										<div class="item col-md-4">
+											<button class="btn btn-link" role="button" value="1">
+												<h3 class="title-sm">TVC</h3>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="survey-control">
+						<button id="sendMessage" class="btn btn-primary disabled" type="button" data-toggle="modal" data-target="">
+							SUBMIT
+						</button>
+						<button id="surveyPrev" class="btn btn-light" href="#surveySlider" role="button" data-slide="prev">
+							Back
+						</button>
+						<button id="surveyNext" class="btn btn-light" href="#surveySlider" role="button" data-slide="next">
+							Next
+						</button>
+						<button id="surveyReset" class="btn btn-light" role="button">
+							Reset
+						</button>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="quest">
-			<div class="wrapper">
-				<div class="step" id="step-01">
-					<h3 class="title-sm">
-						1/ Bạn ấn tượng bởi tầm nhìn và sứ mệnh của chúng tôi?
-					</h3>
-					<div class="row">
-						<div class="item col-md-4">
-							<button class="btn btn-link" role="button" value="1">
-								<h2 class="title-md">Yes</h2>
-							</button>
-						</div>
-
-						<div class="item col-md-4">
-							<button class="btn btn-link" role="button" value="0">
-								<h2 class="title-md">No</h2>
-							</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="step" id="step-02">
-					<h3 class="title-sm">
-						2. Bạn phù hợp với giá trị của chúng tôi
-					</h3>
-					<div class="row">
-						<div class="item col-md-4">
-							<button class="btn btn-link" role="button" value="1">
-								<h3 class="title-sm">Táo bạo:</h3>
-								<p class="paragraph">
-									Không ngại dư luận, không ngại rào cản, luôn thách thức các giới hạn
-								</p>
-							</button>
-						</div>
-
-						<div class="item col-md-4">
-							<button class="btn btn-link" role="button" value="2">
-								<h3 class="title-sm">Tiến hoá</h3>
-								<p class="paragraph">
-									Sản phẩm của hôm nay đã tốt hơn hôm qua nhưng không thể bằng sản phẩm của ngày mai
-								</p>
-							</button>
-						</div>
-
-						<div class="item col-md-4">
-							<button class="btn btn-link" role="button" value="3">
-								<h3 class="title-sm">Khác biệt</h3>
-								<p class="paragraph">
-									Muốn khác biệt, luôn khác biệt. Nghĩ và làm như một người tiên phong, một cá nhân xuất chúng
-								</p>
-							</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="step" id="step-03">
-					<h3 class="title-sm">
-						3. Bạn phù hợp với team nào
-					</h3>
-					<div class="row">
-						<div class="item col-md-4">
-							<button class="btn btn-link" role="button" value="1">
-								<h3 class="title-sm">TVC</h3>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<button id="sendMessage" class="btn btn-default" role="button" disabled>
-				SUBMIT
-			</button>
-			<button id="surveyReset" class="btn btn-light" role="button">
-				Reset
-			</button>
-
 		</div>
 
 		<div id="sliderBottom">
@@ -424,6 +441,89 @@
 	</div>
 
 </section>
+
+<div class="modal fade" id="messageNo" tabindex="-1" role="dialog" aria-labelledby="messageNoTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-warning">
+				<h5 class="modal-title" id="messageNoTitle">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Cám ơn bạn đã dành thời gian tìm hiểu chúng tôi!
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="formModalTitle">CƠ HỘI NGHỀ NGHIỆP</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+                <?php
+                echo form_open_multipart('homepage/get_data_to_send_mail', array('class' => 'form-horizontal'));
+                ?>
+
+				<div class="form-group col-xs-12">
+                    <?php
+                    echo form_error('contact_name');
+                    echo form_input('contact_name', set_value('contact_name'), 'class="form-control" id="contact_name" placeholder="Họ và tên (*)"');
+                    ?>
+				</div>
+
+				<div class="form-group col-xs-12">
+                    <?php
+                    echo form_error('contact_mail');
+                    echo form_input('contact_mail', set_value('contact_mail'), 'class="form-control" id="contact_mail" placeholder="Nhập Email của bạn (*)"');
+                    ?>
+				</div>
+
+				<div class="form-group col-xs-12">
+                    <?php
+                    echo form_error('contact_phone');
+                    echo form_input('contact_phone', set_value('contact_phone'), 'class="form-control" id="contact_phone" placeholder="Nhập số điện thoại của bạn (*)"');
+                    ?>
+				</div>
+
+				<div class="form-group col-xs-12">
+                    <?php
+                    echo form_error('contact_address');
+                    echo form_input('contact_address', set_value('contact_address'), 'class="form-control" id="contact_address" placeholder="Địa chỉ (*)"');
+                    ?>
+				</div>
+
+				<div class="form-group col-xs-12">
+                    <?php
+                    echo form_error('contact_message');
+                    echo form_textarea('contact_message', set_value('contact_message'), 'class="form-control" id="contact_message" placeholder="Để lại lời nhắn đến với chúng tôi ..."');
+                    ?>
+				</div>
+
+				<div class="col-xs-12">
+                    <?php echo form_submit('submit', 'Gửi đăng ký', 'class="btn btn-primary"'); ?>
+				</div>
+                <?php echo form_close(); ?>
+			</div>
+			<!--
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+			-->
+		</div>
+	</div>
+</div>
 
 
 

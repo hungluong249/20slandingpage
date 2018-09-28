@@ -185,7 +185,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 1038;
   -webkit-transition: all ease-in-out 300ms;
   -moz-transition: all ease-in-out 300ms;
   -ms-transition: all ease-in-out 300ms;
@@ -377,7 +377,7 @@ Author: hung.luong@matocreative.vn
   position: fixed;
   top: 0;
   left: 100%;
-  z-index: 1049;
+  z-index: 1039;
   background: #EF4625;
   background: -moz-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
   background: -webkit-gradient(left top, right top, color-stop(0%, #EF4625), color-stop(100%, #F2AB1E));
@@ -603,7 +603,88 @@ Author: hung.luong@matocreative.vn
         left: 50%; }
   #homepage .container-fluid#career {
     height: 100vh;
-    position: relative; }
+    position: relative;
+            /*
+
+            .content{
+                width: 50%;
+
+                position: absolute;
+                top: calc(50vh - 100px);
+                left: calc(16.66% - 200px);
+                z-index: 4;
+            }
+
+            .quest{
+                width: 33.33%;
+                position: absolute;
+                top: 40vh;
+                left: calc(56.66% + 100px);
+                z-index: 4;
+
+                .wrapper{
+                    min-height: 40vh;
+
+                    overflow: hidden;
+
+                    position: relative;
+
+                    .step{
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+
+                        @include transition(300ms);
+
+                        .btn-link{
+                            width: 100%;
+
+                            text-align: center;
+                            white-space: normal;
+
+                            color: $gray-light;
+                            border: 1px solid $gray-light;
+                            border-radius: 7px;
+
+                            @include transition(300ms);
+
+                            &:hover{
+                                color: $gray-dark;
+                                border: 1px solid $gray-dark;
+
+                                @include transition(300ms);
+                            }
+
+                            &.active{
+                                color: $gray-dark;
+                                border: 1px solid $gray-dark;
+
+                                @include transition(300ms);
+                            }
+                        }
+
+                        &.active{
+                            top: 0;
+
+                            @include transition(300ms);
+                        }
+
+                        &:first-of-type{
+                            z-index: 1;
+                        }
+
+                        &:nth-of-type(2){
+                            z-index: 2;
+                        }
+
+                        &:last-of-type{
+                            z-index: 3;
+                        }
+                    }
+                }
+            }
+
+            */ }
     #homepage .container-fluid#career ul {
       position: relative;
       height: 100%; }
@@ -634,10 +715,13 @@ Author: hung.luong@matocreative.vn
           transition: all ease-in-out 300ms; }
     #homepage .container-fluid#career #sliderTop {
       width: 40%;
-      height: 50vh;
+      height: 30vh;
       position: absolute;
       top: 0;
       left: 16.66%; }
+      #homepage .container-fluid#career #sliderTop ul {
+        height: 100%;
+        margin-bottom: 0; }
     #homepage .container-fluid#career #sliderBottom {
       width: 50%;
       height: 15vh;
@@ -652,68 +736,53 @@ Author: hung.luong@matocreative.vn
           #homepage .container-fluid#career #sliderBottom ul li .mask {
             height: 100%; }
     #homepage .container-fluid#career .content {
-      width: 50%;
+      width: 100%;
+      height: 50%;
       position: absolute;
-      top: calc(50vh - 100px);
-      left: calc(16.66% - 200px);
-      z-index: 4; }
-      #homepage .container-fluid#career .content h1 {
-        color: #EF4625;
-        margin-bottom: 50px; }
-      #homepage .container-fluid#career .content p {
-        color: #999; }
-    #homepage .container-fluid#career .quest {
-      width: 33.33%;
-      position: absolute;
-      top: 40vh;
-      left: calc(56.66% + 100px);
-      z-index: 4; }
-      #homepage .container-fluid#career .quest .wrapper {
-        min-height: 40vh;
-        overflow: hidden;
-        position: relative; }
-        #homepage .container-fluid#career .quest .wrapper .step {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          -webkit-transition: all ease-in-out 300ms;
-          -moz-transition: all ease-in-out 300ms;
-          -ms-transition: all ease-in-out 300ms;
-          -o-transition: all ease-in-out 300ms;
-          transition: all ease-in-out 300ms; }
-          #homepage .container-fluid#career .quest .wrapper .step .btn-link {
+      top: 30%;
+      left: 0;
+      z-index: 4;
+      padding-left: 100px;
+      padding-right: 100px; }
+      #homepage .container-fluid#career .content > .row {
+        height: 100%;
+        padding-top: 50px; }
+        #homepage .container-fluid#career .content > .row > .left h1 {
+          color: #EF4625; }
+        #homepage .container-fluid#career .content > .row > .left p {
+          color: #999; }
+        #homepage .container-fluid#career .content > .row > .right {
+          margin-top: 50px; }
+          #homepage .container-fluid#career .content > .row > .right .slide {
             width: 100%;
-            text-align: center;
-            white-space: normal;
-            color: #999;
-            border: 1px solid #999;
-            border-radius: 7px;
-            -webkit-transition: all ease-in-out 300ms;
-            -moz-transition: all ease-in-out 300ms;
-            -ms-transition: all ease-in-out 300ms;
-            -o-transition: all ease-in-out 300ms;
-            transition: all ease-in-out 300ms; }
-            #homepage .container-fluid#career .quest .wrapper .step .btn-link:hover {
-              color: #333;
-              border: 1px solid #333;
-              -webkit-transition: all ease-in-out 300ms;
-              -moz-transition: all ease-in-out 300ms;
-              -ms-transition: all ease-in-out 300ms;
-              -o-transition: all ease-in-out 300ms;
-              transition: all ease-in-out 300ms; }
-          #homepage .container-fluid#career .quest .wrapper .step.active {
-            top: 0;
-            -webkit-transition: all ease-in-out 300ms;
-            -moz-transition: all ease-in-out 300ms;
-            -ms-transition: all ease-in-out 300ms;
-            -o-transition: all ease-in-out 300ms;
-            transition: all ease-in-out 300ms; }
-          #homepage .container-fluid#career .quest .wrapper .step:first-of-type {
-            z-index: 1; }
-          #homepage .container-fluid#career .quest .wrapper .step:nth-of-type(2) {
-            z-index: 2; }
-          #homepage .container-fluid#career .quest .wrapper .step:last-of-type {
-            z-index: 3; }
+            height: 300px; }
+            #homepage .container-fluid#career .content > .row > .right .slide .carousel-inner .carousel-item .row {
+              width: 100%; }
+              #homepage .container-fluid#career .content > .row > .right .slide .carousel-inner .carousel-item .row .btn-link {
+                width: 100%;
+                text-align: center;
+                white-space: normal;
+                color: #999;
+                border: 1px solid #999;
+                border-radius: 7px;
+                -webkit-transition: all ease-in-out 300ms;
+                -moz-transition: all ease-in-out 300ms;
+                -ms-transition: all ease-in-out 300ms;
+                -o-transition: all ease-in-out 300ms;
+                transition: all ease-in-out 300ms; }
+                #homepage .container-fluid#career .content > .row > .right .slide .carousel-inner .carousel-item .row .btn-link:hover {
+                  color: #333;
+                  border: 1px solid #333;
+                  -webkit-transition: all ease-in-out 300ms;
+                  -moz-transition: all ease-in-out 300ms;
+                  -ms-transition: all ease-in-out 300ms;
+                  -o-transition: all ease-in-out 300ms;
+                  transition: all ease-in-out 300ms; }
+                #homepage .container-fluid#career .content > .row > .right .slide .carousel-inner .carousel-item .row .btn-link.active {
+                  color: #333;
+                  border: 1px solid #333; }
+          #homepage .container-fluid#career .content > .row > .right .survey-control {
+            padding-top: 30px; }
 
 /*
 =========================================
