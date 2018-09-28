@@ -1,9 +1,9 @@
 switch(window.location.origin){
-    case 'http://ngochuong.vn':
-        var HOSTNAME = 'http://ngochuong.vn/';
+    case 'http://20slandingpage.vn':
+        var HOSTNAME = 'http://20slandingpage.vn/';
         break;
     default:
-        var HOSTNAME = 'http://localhost/seafood/';
+        var HOSTNAME = 'http://localhost/20slandingpage/';
 }
 
 $(document).ready(function(){

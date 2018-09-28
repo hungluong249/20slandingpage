@@ -4,9 +4,11 @@ class Dashboard extends Admin_Controller {
 
     function __construct(){
         parent::__construct();
+		$this->load->model('post_model');
     }
 
     public function index(){
+    	$this->data['post'] = $this->post_model->find_rows(array('is_deleted' => 0));
         $this->render('admin/dashboard_view');
     }
 }

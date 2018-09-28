@@ -21,38 +21,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>dist/css/skins/skin-black-light.css">
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <!-- Google Font -->
     <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900&amp;subset=latin-ext" rel="stylesheet">
-
-    <!-- STYLE -->
-    <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>dataTable/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/admin/datatable.css">
-
-
+    
     <!-- Library JS called-->
     <!-- jQuery 3 -->
     <script src="<?php echo site_url('assets/lib/') ?>jquery/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="<?php echo site_url('assets/lib/') ?>bootstrap/js/bootstrap.min.js"></script>
-    <!-- fastClick -->
-    <script src="<?php echo site_url('assets/lib/') ?>fastclick/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo site_url('assets/lib/') ?>dist/js/adminlte.min.js"></script>
 
-    <script type="text/javascript" src="<?php echo site_url('tinymce/tinymce.min.js'); ?>"></script>
-    <!-- SCRIPT -->
-    <script src="<?php echo site_url('assets/lib/') ?>dataTable/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo site_url('assets/lib/') ?>dataTable/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo site_url('tinymce/tinymce.min.js') ?>" ></script>
+
+
+
 </head>
 
 <body class="hold-transition skin-black-light sidebar-mini">
 <div class="wrapper">
-    <?php if($this->ion_auth->logged_in()): ?>
+
     <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo base_url('admin/dashboard') ?>" class="logo">
+        <a href="<?php echo base_url('admin/dashboard')?>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>C</span>
             <!-- logo for regular state and mobile devices -->
@@ -67,50 +66,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
-
+                    
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?php echo site_url('assets/lib/dist/img/user2-160x160.jpg') ?>"
-                                 class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <img src="<?php echo site_url('assets/img/logo.png') ?>" class="user-image" alt="User Image">
+                            <span class="hidden-xs">20 section</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="<?php echo site_url('assets/lib/dist/img/user2-160x160.jpg') ?>"
-                                     class="img-circle" alt="User Image">
+                                <img src="<?php echo site_url('assets/img/logo.png') ?>" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    20 section - Web Developer
                                 </p>
                             </li>
-                            <!-- Menu Body -->
-                            <!--
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-
-                            </li>-->
-                            <!-- Menu Footer-->
                             <li class="user-footer">
-                                <!--
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                -->
                                 <div class="pull-right">
-                                    <a href="javascript:void(0);" class="btn btn-default btn-flat" onclick="logout();">Sign out</a>
+                                    <a href="<?php echo base_url('admin/user/logout');?>" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -119,5 +92,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </nav>
     </header>
-    <?php endif; ?>
+    <!-- Left side column. contains the logo and sidebar -->
 

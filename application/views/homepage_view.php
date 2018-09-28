@@ -42,7 +42,12 @@
 
 	<div class="cover container-fluid" id="top">
 		<div class="mask">
-			<img src="<?php echo site_url('assets/img/head_cover.jpg') ?>" alt="image cover on TOP">
+			<?php if (!empty(json_decode($banner['image'],true)['avata'])): ?>
+				<?php $img = 'assets/upload/banner/'.json_decode($banner['image'],true)['avata'];?>
+			<?php else: ?>
+				<?php $img = 'assets/img/horizontal.jpg';?>
+			<?php endif ?>
+			<img src="<?php echo site_url($img) ?>" alt="image cover on TOP">
 		</div>
 
 		<div class="overlay"></div>
@@ -59,7 +64,7 @@
 					<ul>
 						<li>
 							<a href="#about">
-								Về DIVISION X
+								<?php echo $division_x['title']; ?>
 							</a>
 						</li>
 						<li>
@@ -69,7 +74,7 @@
 						</li>
 						<li>
 							<a href="#marketing">
-								Influence Marketing
+								<?php echo $influence_marketing['title']; ?>
 							</a>
 						</li>
 						<li>
@@ -97,27 +102,23 @@
 		<div class="row">
 			<div class="left col-xs-12 col-md-7">
 				<div class="mask wow fadeInUp">
-					<img src="https://images.unsplash.com/photo-1511848324154-9df0746e2473?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cf2dcf5790e86b67fa2616419726fb8e&auto=format&fit=crop&w=634&q=80" alt="image about cover">
+					<img src="<?php echo site_url('assets/upload/post_category/'.$division_x['image']) ?>" width="100%" alt="logo brand">
 				</div>
 
-				<div class="content">
+				<div class="content" id="paragraph-sm-none">
 					<h1 class="title-lg wow fadeInLeft">
-						Về DIVISION X
+						<?php echo $division_x['title']; ?>
 					</h1>
 
 					<div class="line-top d-block d-sm-none"></div>
-
-					<p class="paragraph d-block d-sm-none">DIVISION X là dự án của công ty 20sections đào tạo các cá nhân có năng lực trở thành các người sáng tạo nội dung thế hệ tiếp theo. Sứ mệnh của những người sáng tạo nội dung này là truyền cảm hứng, đặc biệt là truyền cảm hứng cho thế hệ trẻ thông qua các phương tiện truyền thông dễ tiếp cận nhất.</p>
-					<p class="paragraph d-block d-sm-none">Nội dung liên tục được đội ngũ sáng tạo nội dung xây dựng và làm mới, tạo ra các trào lưu trong cộng đồng</p>
+					<?php echo $division_x['content']; ?>
 				</div>
 
 			</div>
 
 			<div class="right col-xs-12 col-md-5 wow fadeInUp">
 				<div class="line-top"></div>
-
-				<p class="paragraph">DIVISION X là dự án của công ty 20sections đào tạo các cá nhân có năng lực trở thành các người sáng tạo nội dung thế hệ tiếp theo. Sứ mệnh của những người sáng tạo nội dung này là truyền cảm hứng, đặc biệt là truyền cảm hứng cho thế hệ trẻ thông qua các phương tiện truyền thông dễ tiếp cận nhất.</p>
-				<p class="paragraph">Nội dung liên tục được đội ngũ sáng tạo nội dung xây dựng và làm mới, tạo ra các trào lưu trong cộng đồng</p>
+				<?php echo $division_x['content']; ?>
 			</div>
 		</div>
 	</div>
@@ -132,7 +133,7 @@
 			<?php foreach ($result as $key => $value): ?>
 				<div class="item">
 					<div class="mask">
-						<img src="<?php echo site_url('assets/img/team/') . $value['image'] ?>" alt="pic of <?php echo $value['name'] ?>">
+						<img src="<?php echo site_url('assets/upload/creator/') . $value['image'] ?>" alt="pic of <?php echo $value['name'] ?>">
 					</div>
 					<div class="content">
 						<h3 class="title-sm"><?php echo $value['name'] ?></h3>
@@ -141,36 +142,26 @@
 						<ul class="list-inline">
 							<li class="list-inline-item">
 								<?php
-								if ($value['facebook'] == 1) {
-									echo '<a href="http://' .$value['fb_link'] . '" target="_blank">';
-									echo '<i class="fab fa-facebook-square"></i>';
-									echo '</a>';
-								} else {
-									echo '';
-								}
-								?>
+								if ($value['facebook'] != ''): ?>
+									<a href="<?php echo $value['facebook'];?>" target="_blank">';
+									<i class="fab fa-facebook-square"></i>';
+									</a>
+                                <?php endif ?>
 							</li>
 							<li class="list-inline-item">
                                 <?php
-                                if ($value['youtube'] == 1) {
-                                    echo '<a href="http://' .$value['yt_link'] . '" target="_blank">';
-                                    echo '<i class="fab fa-youtube-square"></i>';
-                                    echo '</a>';
-                                } else {
-                                    echo '';
-                                }
-                                ?>
+                                if ($value['youtube'] != ''): ?>
+                                    <a href="<?php echo $value['youtube'];?>" target="_blank">';
+                                    <i class="fab fa-youtube-square"></i>';
+                                    </a>
+                                <?php endif ?>
 							</li>
 							<li class="list-inline-item">
-                                <?php
-                                if ($value['instagram'] == 1) {
-                                    echo '<a href="http://' .$value['in_link'] . '" target="_blank">';
-                                    echo '<i class="fab fa-instagram"></i>';
-                                    echo '</a>';
-                                } else {
-                                    echo '';
-                                }
-                                ?>
+                                <?php if ($value['instagram'] != ''): ?> 
+                                    <a href="<?php echo $value['instagram'];?>" target="_blank">';
+                                    	<i class="fab fa-instagram"></i>';
+                                    </a>
+                                <?php endif ?>
 							</li>
 						</ul>
 					</div>
@@ -189,19 +180,12 @@
 		<div class="row">
 			<div class="left col-xs-12 col-md-3">
 				<h1 class="title-lg">
-					Influence <br>
-					Marketing
+					<?php echo str_replace(' ', '<br>', str_replace('  ', ' ', $influence_marketing['title'])) ?>
 				</h1>
 			</div>
 
 			<div class="middle col-xs-12 col-md-3">
-				<p class="paragraph">
-					Giúp thương hiệu lựa chọn đúng ifluencers và có chiến lược, chiến dịch phù hợp và hiệu quả
-				</p>
-				<p class="paragraph">
-					Chúng tôi cùng các thương hiệu xây dựng mối quan hệ lâu dài, bền vũng và hiệu quả với các influencers. Giúp thương hiệu có thể xây dựng một chiến lược sử dụng influencers hiệu quả với những lượng tương tác lớn.
-					Các creator của DivisionX sẽ trở thành in house influencers của nhãn hàng, đồng hành với nhãn hàng lâu dài.
-				</p>
+				<?php echo $influence_marketing['content'];?>
 			</div>
 
 			<div class="right col-xs-12 col-md-6">
@@ -211,11 +195,11 @@
 
 				<div class="list-brand">
 					<div class="row">
-						<?php for($i = 0; $i < 9; $i++){ ?>
-						<div class="item col-6 col-md-4">
-							<img src="<?php echo site_url('assets/img/brand/') ?>vcb.jpeg" width="100%" alt="logo brand">
-						</div>
-						<?php } ?>
+						<?php foreach ($customer as $key => $value): ?>
+							<div class="item col-6 col-md-4">
+								<img src="<?php echo site_url('assets/upload/customer/'.$value['image']) ?>" width="100%" alt="logo brand">
+							</div>
+						<?php endforeach ?>
 					</div>
 				</div>
 			</div>
@@ -538,7 +522,10 @@
 
 
 <script type="text/javascript">
-
+	for (var i = 0; i < document.querySelectorAll('#paragraph-sm-none p').length; i++) { 
+		document.querySelectorAll('#paragraph-sm-none p')[i].classList.add('d-block'); 
+		document.querySelectorAll('#paragraph-sm-none p')[i].classList.add('d-sm-none'); 
+	}
 
 
     $(document).ready(function() {

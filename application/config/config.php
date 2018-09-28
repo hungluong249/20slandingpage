@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$config['base_url'] = 'http://thienlocxuan.com.vn/';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -210,14 +210,14 @@ $config['allow_get_array'] = TRUE;
 | threshold determines what gets logged. Threshold options are:
 |
 |	0 = Disables logging, Error logging TURNED OFF
-|	1 = Error Messages (including PHP errors)
-|	2 = Debug Messages
-|	3 = Informational Messages
-|	4 = All Messages
+|	1 = Error messages (including PHP errors)
+|	2 = Debug messages
+|	3 = Informational messages
+|	4 = All messages
 |
 | You can also pass an array with threshold levels to show individual error types
 |
-| 	array(2) = Debug Messages, without Error Messages
+| 	array(2) = Debug messages, without Error messages
 |
 | For a live site you'll usually only enable Errors (1) to be logged otherwise
 | your log files will fill up very fast.
