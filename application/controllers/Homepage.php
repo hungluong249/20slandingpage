@@ -5,7 +5,10 @@ class Homepage extends Public_Controller {
     public function __construct(){
         parent::__construct();
         //Do your magic here
-
+        $this->load->model('creator_model');
+        $this->load->model('banner_model');
+        $this->load->model('customer_model');
+        $this->load->model('post_category_model');
         $this->value = array(
             [
                 'id' => 1,
@@ -90,7 +93,13 @@ class Homepage extends Public_Controller {
     }
     public function index(){
         $this->data['the_view_content'] = 'homepage_view';
-        $this->data['result'] = $this->value;
+        $this->data['result'] = $this->creator_model->get_all();
+        $this->data['banner'] = $this->banner_model->get_by_id(37);
+        $this->data['customer'] = $this->customer_model->get_all();
+        $this->data['division_x'] = $this->post_category_model->get_by_id(1);
+        $this->data['influence_marketing'] = $this->post_category_model->get_by_id(2);
+        $this->data['post_service'] = $this->post_category_model->get_by_id(3);
+        $this->data['job_opportunity'] = $this->post_category_model->get_by_id(4);
         $this->data['services'] = $this->services;
 
         $this->load->view('templates/master_view', $this->data);

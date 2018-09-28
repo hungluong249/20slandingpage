@@ -10,13 +10,10 @@ class User extends MY_Controller {
     }
 
     public function index() {
-
+        
     }
 
     public function login() {
-        if ($this->ion_auth->logged_in()) {
-            redirect('admin/dashboard', 'refresh');
-        }
         $this->data['page_title'] = 'Login';
         if ($this->input->post()) {
             $this->load->library('form_validation');
@@ -26,7 +23,7 @@ class User extends MY_Controller {
             if ($this->form_validation->run() === TRUE) {
                 $remember = (bool) $this->input->post('remember');
                 if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
-                    redirect('admin/about', 'refresh');
+                    redirect('admin', 'refresh');
                 } else {
                     $this->session->set_flashdata('message', $this->ion_auth->errors());
                     redirect('admin/user/login', 'refresh');
@@ -34,20 +31,13 @@ class User extends MY_Controller {
             }
         }
         $this->load->helper('form');
-        $this->render('admin/login_view', 'admin_master');
+        //$this->render('admin/login_view', 'admin_master');
+        $this->load->view('admin/login_f_view');
     }
 
     public function logout() {
-        if(!$this->ion_auth->logout()){
-            $this->output
-                ->set_content_type('application/json')
-                ->set_status_header(HTTP_BAD_REQUEST)
-                ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
-        }
-        $this->output
-            ->set_content_type('application/json')
-            ->set_status_header(HTTP_SUCCESS)
-            ->set_output(json_encode(array('status' => HTTP_SUCCESS)));
+        $this->ion_auth->logout();
+        redirect('admin/user/login', 'refresh');
     }
 
 }

@@ -50,5 +50,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'homepage';
-$route['404_override'] = '';
+$route['404_override'] = 'noPage';
 $route['translate_uri_dashes'] = TRUE;
+
+$route['^vi/(.+)$'] = "$1"; 
+$route['^en/(.+)$'] = "$1";
+
+$route['^vi$'] = $route['default_controller']; 
+$route['^en$'] = $route['default_controller'];
+
+$route['admin'] = 'admin/dashboard';
+
+$route['tours/([a-zA-Z0-9-_]+)'] = 'tours/detail/$1';
+$route['danh-muc/([a-zA-Z0-9-_]+)'] = 'tours/category/$1';
+
+$route['bai-viet/([a-zA-Z0-9-_]+)'] = 'post/detail/$1';
+$route['chuyen-muc/([a-zA-Z0-9-_]+)'] = 'post/category/$1';
+
+$route['thu-vien/([a-zA-Z0-9-_]+)'] = 'location/detail/$1';
+
+$route['created_captcha'] = 'tours/created_captcha';
+$route['created_rating'] = 'tours/created_rating';

@@ -92,36 +92,13 @@ function active(controller, id, question, message = '') {
                 id : id, csrf_seafood_token : csrf_hash
             },
             success: function(response){
-                if(response.success == true){
-                    csrf_hash = response.reponse.csrf_hash;
-                    switch(controller){
-                        case 'event' :
-                            alert('Mở sự kiện thành công');
-                            break;
-                        case 'order' :
-                            alert('Xác nhận đặt bàn thành công');
-                            break;
-                        case 'upload' :
-                            alert('Thay đổi thành công');
-                            break;
-                    }
-                    
-                    location.reload();
-                }else{
-                    switch(controller){
-                        case 'event' :
-                            alert('Hiện có 1 sự kiện đang được sử dụng. Vui lòng tắt sự kiện đó rồi thực hiện lại thao tác!');
-                            break;
-                        case 'upload' :
-                            alert(message);
-                            break;
-                    }
-                    
-                    location.reload();
-                }
+                csrf_hash = response.reponse.csrf_hash;
+                alert(response.message);
+                location.reload();
             },
-            error: function(jqXHR, exception){
-                console.log(errorHandle(jqXHR, exception));
+            error: function(response){
+                alert(response.responseJSON.message);
+                location.reload();
             }
         });
     }
@@ -138,21 +115,12 @@ function deactive(controller, id, question) {
             },
             success: function(response){
                 csrf_hash = response.reponse.csrf_hash;
-                if(response.status == 200){
-                    
-                    switch(controller){
-                        case 'event' :
-                            alert('Tắt sự kiện thành công');
-                            break;
-                        case 'order' :
-                            alert('Hủy đặt bàn thành công');
-                            break;
-                    }
-                    location.reload();
-                }
+                alert(response.message);
+                location.reload();
             },
             error: function(jqXHR, exception){
-                console.log(errorHandle(jqXHR, exception));
+                alert(response.responseJSON.message);
+                location.reload();
             }
         });
     }

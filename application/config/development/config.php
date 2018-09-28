@@ -76,7 +76,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'vietnamese';
+$config['language']	= 'english';
 
 /*
 |--------------------------------------------------------------------------
@@ -168,6 +168,9 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | By default CodeIgniter uses search-engine friendly segment based URLs:
 | example.com/who/what/where/
 |
+| By default CodeIgniter enables access to the $_GET array.  If for some
+| reason you would like to disable it, set 'allow_get_array' to FALSE.
+|
 | You can optionally enable standard query string based URLs:
 | example.com?who=me&what=something&where=here
 |
@@ -182,24 +185,11 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | use segment based URLs.
 |
 */
+$config['allow_get_array'] = TRUE;
 $config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
 $config['function_trigger'] = 'm';
 $config['directory_trigger'] = 'd';
-
-/*
-|--------------------------------------------------------------------------
-| Allow $_GET array
-|--------------------------------------------------------------------------
-|
-| By default CodeIgniter enables access to the $_GET array.  If for some
-| reason you would like to disable it, set 'allow_get_array' to FALSE.
-|
-| WARNING: This feature is DEPRECATED and currently available only
-|          for backwards compatibility purposes!
-|
-*/
-$config['allow_get_array'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -210,14 +200,14 @@ $config['allow_get_array'] = TRUE;
 | threshold determines what gets logged. Threshold options are:
 |
 |	0 = Disables logging, Error logging TURNED OFF
-|	1 = Error Messages (including PHP errors)
-|	2 = Debug Messages
-|	3 = Informational Messages
-|	4 = All Messages
+|	1 = Error messages (including PHP errors)
+|	2 = Debug messages
+|	3 = Informational messages
+|	4 = All messages
 |
 | You can also pass an array with threshold levels to show individual error types
 |
-| 	array(2) = Debug Messages, without Error Messages
+| 	array(2) = Debug messages, without Error messages
 |
 | For a live site you'll usually only enable Errors (1) to be logged otherwise
 | your log files will fill up very fast.
@@ -324,7 +314,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'W>nXdT7GM]NgM(M@2w*=NN>Gxl<1?w';
+$config['encryption_key'] = 'yUvjEqDj5XtJwgby2VsyMJmeZW4PU7UY';
 
 /*
 |--------------------------------------------------------------------------
@@ -377,10 +367,10 @@ $config['encryption_key'] = 'W>nXdT7GM]NgM(M@2w*=NN>Gxl<1?w';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_driver'] = 'database';
+$config['sess_cookie_name'] = 'site_session';
+$config['sess_expiration'] = 0;
+$config['sess_save_path'] = 'site_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -414,8 +404,8 @@ $config['cookie_httponly'] 	= FALSE;
 | Determines whether to standardize newline characters in input data,
 | meaning to replace \r\n, \r, \n occurrences with the PHP_EOL value.
 |
-| WARNING: This feature is DEPRECATED and currently available only
-|          for backwards compatibility purposes!
+| This is particularly useful for portability between UNIX-based OSes,
+| (usually \n) and Windows (\r\n).
 |
 */
 $config['standardize_newlines'] = FALSE;
@@ -488,7 +478,7 @@ $config['compress_output'] = FALSE;
 | helper' page of the user guide for information regarding date handling.
 |
 */
-$config['time_reference'] = 'Asia/Ho_Chi_Minh';
+$config['time_reference'] = 'local';
 
 /*
 |--------------------------------------------------------------------------
