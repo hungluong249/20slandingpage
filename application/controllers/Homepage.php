@@ -98,7 +98,7 @@ class Homepage extends Public_Controller {
                     </tbody></table>
                 ";
                 $description = "Thông tin đăng ký 20s.";
-                $send_mail = send_mail("20sectionhosting@gmail.com","vkgbvtqxsyrypsgw","minhtruong93gtvt@gmail.com",'trungdung@20section.com','20 Section',$description,$content);
+                $send_mail = send_mail("20sectionhosting@gmail.com","vkgbvtqxsyrypsgw","minhtruong93gtvt@gmail.com",'contact@20section.com','20 Section',$description,$content);
                 if($send_mail == 'Success'){
                     $this->session->set_userdata($ip,$ip);
                     $this->session->mark_as_temp($ip, 3600);

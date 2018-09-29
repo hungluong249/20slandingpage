@@ -57,13 +57,18 @@ function send_mail(){
             team : document.querySelector('#step-03 .btn.btn-link.active').value,
             csrf_seafood_token : document.getElementById('csrf_sitecom_token').value
         },
+        beforeSend:function (){
+            document.getElementById('sendmail').setAttribute('disabled','disabled');
+        },
         success: function(response){
             document.getElementById('csrf_sitecom_token').value = response.reponse.csrf_hash;
             alert(response.message);
+            document.getElementById('sendmail').removeAttribute('disabled');
         },
         error: function(response){
             alert(response.responseJSON.message);
             document.getElementById('csrf_sitecom_token').value = response.reponse.csrf_hash;
+            document.getElementById('sendmail').removeAttribute('disabled');
         }
     });
 }
