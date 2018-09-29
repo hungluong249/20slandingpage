@@ -23,17 +23,22 @@
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == '')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/banner/detail') ?>">
-                        <i class="fa fa-dashboard"></i> <span>Banner</span>
+                        <i class="fa fa-area-chart"></i> <span>Banner</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == '')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/creator') ?>">
-                        <i class="fa fa-dashboard"></i> <span>Creator</span>
+                        <i class="fa fa-child"></i> <span>Creator</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == '')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/customer/detail') ?>">
-                        <i class="fa fa-dashboard"></i> <span>Customer</span>
+                        <i class="fa fa-handshake-o"></i> <span>Customer</span>
+                    </a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == '')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/question/detail') ?>">
+                        <i class="fa fa-question"></i> <span>Question</span>
                     </a>
                 </li>
                 <li class="<?php echo ($this->uri->segment(2) == 'post_category' || $this->uri->segment(2) == 'post')? 'active' : 'treeview' ?>">

@@ -83,64 +83,88 @@ $(document).ready(function(){
         $this.carousel({
             interval: false
         });
-        
         // Set disabled first item
         if ( $('#surveySlider .carousel-item:first-of-type').hasClass('active') ){
-            $('button#surveyPrev').attr('href' , '');
-            $('button#surveyPrev').addClass('disabled');
+            $('button#surveyPrev').attr('disabled','disabled');
         } else {
-            $('button#surveyPrev').attr('href' , '#surveySlider');
-            $('button#surveyPrev').removeClass('disabled');
+            $('button#surveyPrev').removeAttr('disabled');
         }
         
         $('#surveySlider').on('slid.bs.carousel', function () {
             // Work with first item
-            if ( $('#surveySlider .carousel-item:first-of-type').hasClass('active') ){
-                $('button#surveyPrev').attr('href' , '');
-                $('button#surveyPrev').addClass('disabled');
+            if ($('#surveySlider .carousel-item:first-of-type').hasClass('active') ){
+                $('button#surveyPrev').attr('disabled','disabled');
             } else {
-                $('button#surveyPrev').attr('href' , '#surveySlider');
-                $('button#surveyPrev').removeClass('disabled');
-                
+                $('button#surveyPrev').removeAttr('disabled');
+            }
+
+            // Work with last item
+            if ( $('#surveySlider .carousel-item:last-of-type').hasClass('active')){
+                $('button#surveyNext').attr('disabled','disabled');
+                if($('#step-03 .btn-link.active').length > 0){
+                    $('button#sendMessage').removeClass('disabled');
+                    $('button#sendMessage').attr('data-target' , '#formModal');
+                }
             }
             
             // Work with last item
-            if ( $('#surveySlider .carousel-item:last-of-type').hasClass('active') ){
-                $('button#surveyNext').attr('href' , '');
-                $('button#surveyNext').addClass('disabled');
+            if ( $('#surveySlider .carousel-item:nth-child(2)').hasClass('active') ){
+                if($('#step-02 .btn-link.active').length == 0){
+                    $('button#surveyNext').attr('disabled','disabled');
+                }
                 
-                $('button#sendMessage').removeClass('disabled');
-                $('button#sendMessage').attr('data-target' , '#formModal');
-            } else {
-                $('button#surveyNext').attr('href' , '#surveySlider');
-                $('button#surveyNext').removeClass('disabled');
-                
-                $('button#sendMessage').addClass('disabled');
-                $('button#sendMessage').attr('data-target' , '');
             }
         });
         
+
+        //Activate selection
+        $('button#surveyPrev').click(function(){
+            $('button#surveyNext').removeAttr('disabled');
+            $('button#sendMessage').addClass('disabled');
+            $('button#sendMessage').attr('data-target' , '');
+        });
+
+
         //Reset Slider
-        
         $('button#surveyReset').click(function(){
+            $('.btn.btn-link.active').removeClass('active');
+            $('button#surveyNext').attr('disabled','disabled');
+            $('button#sendMessage').addClass('disabled');
+            $('button#sendMessage').attr('data-target' , '');
             $this.carousel(0);
         });
-        
-        //Activate selection
-    
-        var check = 0;
-        $('#career .btn-link').click(function(){
-            
-            if( check == 0 ){
-                $(this).addClass('active');
-                check = 1;
-            } else{
-                $(this).removeClass('active');
-                check = 0;
-            }
-        })
 });
 
+$('#career .btn-link').click(function(){
+    id = $(this).parents('[id^="step-0"]')[0].id;
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
+    } else{
+        if(id == 'step-03'){
+            $('#step-03 .btn.btn-link.active').removeClass('active');
+            $(this).addClass('active');
+        }else{
+            $(this).addClass('active');
+        }
+    }
+    if ($(this)[0].id == 'no-activated') {
+        $(this).removeClass('active');
+        $(`#yes-activated`).removeClass('active');
+    }
+    number_active = document.querySelectorAll(`#${id} .btn.btn-link.active`).length;
+    if (number_active > 0 && id != 'step-03') {
+        $('button#surveyNext').removeAttr('disabled');
+    }else{
+        $('button#surveyNext').attr('disabled','disabled');
+    }
+    if(number_active > 0 && id == 'step-03'){
+        $('button#sendMessage').removeClass('disabled');
+        $('button#sendMessage').attr('data-target' , '#formModal');
+    } else {
+        $('button#sendMessage').addClass('disabled');
+        $('button#sendMessage').attr('data-target' , '');
+    }
+})
 
 
 

@@ -68,16 +68,13 @@ class Customer extends Admin_Controller{
     public function active(){
         $id = $this->input->post('id');
         if($id &&  is_numeric($id) && ($id > 0)){
-            if($this->customer_model->find_rows(array('is_activated' => 0,'is_deleted' => '0')) == 0){
-                $update = $this->customer_model->common_update($id,array('is_activated' => 0));
-                if($update){
-                    $reponse = array(
-                        'csrf_hash' => $this->security->get_csrf_hash()
-                    );
-                    return $this->return_api(HTTP_SUCCESS, 'Bật customer thành công',$reponse);
-                }
+            $update = $this->customer_model->common_update($id,array('is_activated' => 0));
+            if($update){
+                $reponse = array(
+                    'csrf_hash' => $this->security->get_csrf_hash()
+                );
+                return $this->return_api(HTTP_SUCCESS, 'Bật customer thành công',$reponse);
             }
-            return $this->return_api(HTTP_NOT_FOUND,'Bạn chỉ được sử dụng 1 customer, Vui lòng tắt customer đang sử dụng để sử dụng customer hiện tại');
         }
         return $this->return_api(HTTP_NOT_FOUND);
     }

@@ -1,12 +1,12 @@
 <!-- Content Wrapper. Contains page content -->
-
+<link rel="stylesheet" href="<?php echo site_url('assets/sass/admin/') ?>detailbanner.css">
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
             Danh sách
             <small>
-                Banner
+                Creator
             </small>
         </h1>
     </section>
@@ -33,23 +33,25 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">
-                            Banner
+                            Creator
                         </h3>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <a href="<?php echo base_url('admin/'.$controller.'/create') ?>" class="btn btn-primary" role="button">Thêm mới</a>
-                        </div>
-                        <div class="col-md-6">
-                            <form action="<?php echo base_url('admin/'.$controller.'/index') ?>" method="get">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="">
-                                    <span class="input-group-btn">
-                                        <input type="submit" class="btn btn-block btn-primary" value="Tìm kiếm">
-                                    </span>
-                                </div>
-                            </form>
+                        <div class="col-xs-12">
+                            <div class="col-md-6">
+                                <a href="<?php echo base_url('admin/'.$controller.'/create') ?>" class="btn btn-primary" role="button">Thêm mới</a>
+                            </div>
+                            <div class="col-md-6">
+                                <form action="<?php echo base_url('admin/'.$controller.'/index') ?>" method="get">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="">
+                                        <span class="input-group-btn">
+                                            <input type="submit" class="btn btn-block btn-primary" value="Tìm kiếm">
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
@@ -75,7 +77,7 @@
                                     <tr class="remove_<?php echo $value['id'] ?>">
                                         <td><?php echo $i++ ?></td>
                                         <td>
-                                            <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value['image']) ?>" alt="anh-mo-ta" width=150px>
+                                            <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value['image']) ?>" alt="anh-mo-ta" width=170px height=140px>
                                         </td>
                                         <td><?php echo $value['name'] ?></td>
                                         <td>
@@ -87,9 +89,9 @@
                                         </td>
                                         <td>
                                             <?php if ($value['is_activated'] == 0): ?>
-                                                <a href="javascript:void(0);" onclick="deactive('<?php echo $controller; ?>', <?php echo $value['id'] ?>, 'Chăc chắn tắt banner')" class="dataActionDelete" title="Tắt danh mục"><i class="fa fa-low-vision" aria-hidden="true"></i> </a>
+                                                <a href="javascript:void(0);" onclick="deactive('<?php echo $controller; ?>', <?php echo $value['id'] ?>, 'Chăc chắn tắt creator')" class="dataActionDelete" title="Tắt danh mục"><i class="fa fa-low-vision" aria-hidden="true"></i> </a>
                                             <?php else: ?>
-                                                <a href="javascript:void(0);" onclick="active('<?php echo $controller; ?>', <?php echo $value['id'] ?>, 'Chăc chắn bật banner')" class="dataActionDelete" title="Bật danh mục"><i class="fa fa-eye" aria-hidden="true"></i> </a>
+                                                <a href="javascript:void(0);" onclick="active('<?php echo $controller; ?>', <?php echo $value['id'] ?>, 'Chăc chắn bật creator')" class="dataActionDelete" title="Bật danh mục"><i class="fa fa-eye" aria-hidden="true"></i> </a>
                                             <?php endif ?>
 
                                             <a href="<?php echo base_url('admin/'.$controller.'/edit/'. $value['id']) ?>" class="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
@@ -111,7 +113,7 @@
                                     </tr>
                                 <?php else: ?>
                                     <tr>
-                                        Chưa có Banner
+                                        Chưa có creator
                                     </tr>
                                 <?php endif; ?>
 
@@ -125,9 +127,15 @@
                     <!-- /.box-body -->
                 </div>
 
+            <div id="encypted_ppbtn_all"></div>
+            <div id="myModal" class="modal" style="overflow-y: auto;">
+                <img class="modal-content" id="img01">
+            </div>
                 <!-- /.box -->
             </div>
         </div>
     </section>
     <!-- /.content -->
 </div>
+<script src="<?php echo site_url('assets/js/admin/') ?>showmodalimg.js"></script>
+<script src="<?php echo site_url('assets/js/admin/') ?>detail-banner.js"></script>

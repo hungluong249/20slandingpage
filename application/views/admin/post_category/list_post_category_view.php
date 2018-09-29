@@ -121,8 +121,8 @@
         if ($cate_child){
             foreach ($cate_child as $key => $value){
             ?>
-            <tbody class="treeview ui-sortable-handle" id="<?php echo ($key + 1) . '-' . $value['id'] ?>" <?php echo ($value['parent_id'] == 0)? 'style="cursor: pointer;"' : '' ?> >
-                <tr style="background: #DFFDE0" class="remove_<?php echo $value['id'] ?>" >
+            <tbody class="treeview ui-sortable-handle" id="<?php echo ($key + 1) . '-' . $value['id'] ?>" >
+                <tr class="remove_<?php echo $value['id'] ?>" >
                     <td>
                         <div class="mask_sm">
                             <?php if (!empty($value['image'])): ?>
