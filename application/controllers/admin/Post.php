@@ -68,9 +68,6 @@ class Post extends Admin_Controller{
         	$this->render('admin/post/create_post_view');
         } else {
         	if($this->input->post()){
-                if(!empty($_FILES['image_shared']['name'])){
-                    $this->check_img($_FILES['image_shared']['name'], $_FILES['image_shared']['size']);
-                }
             	$slug = $this->input->post('slug_shared');
                 $unique_slug = $this->post_model->build_unique_slug($slug);
 
@@ -199,7 +196,7 @@ class Post extends Admin_Controller{
                     $reponse = array(
                         'csrf_hash' => $this->security->get_csrf_hash()
                     );
-                    return $this->return_api(HTTP_SUCCESS,'',$reponse);
+                    return $this->return_api(HTTP_SUCCESS,'Bật bài viết thành công',$reponse);
                 }
                 return $this->return_api(HTTP_BAD_REQUEST);
             }
@@ -216,7 +213,7 @@ class Post extends Admin_Controller{
                     $reponse = array(
                         'csrf_hash' => $this->security->get_csrf_hash()
                     );
-                    return $this->return_api(HTTP_SUCCESS,'',$reponse);
+                    return $this->return_api(HTTP_SUCCESS,'Tắt bài viết thành công',$reponse);
                 }
                 return $this->return_api(HTTP_BAD_REQUEST);
             }

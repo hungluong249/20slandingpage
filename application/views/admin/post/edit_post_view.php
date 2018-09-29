@@ -91,15 +91,17 @@
                             <span class="btn btn-primary form-control append-date" id="button-numberdescription" onclick="add_description()">Xác nhận </span>
                         </div> -->
                         <div id="add-all-description">
-                            <?php foreach ($detail['description'] as $key => $value): ?>
-                                <div class="col-md-6 col-xs-12 all-description" style="margin-top:10px;">
-                                    <div class="col-xs-12" style="padding:0px;background:#00CC00;padding:2px;">
-                                        <label style="color:#FFFF00;padding-top:2px;" >Thông tin <?php echo $key+1; ?></label>
-                                        <i class="fa fa-times" style="cursor:pointer; float:right; font-size:1.3em; color:#FFFF00; padding-top:2px;" onclick = "remove_description(this)"></i>
+                            <?php if (!empty($detail['description'])): ?>
+                                <?php foreach ($detail['description'] as $key => $value): ?>
+                                    <div class="col-md-6 col-xs-12 all-description" style="margin-top:10px;">
+                                        <div class="col-xs-12" style="padding:0px;background:#00CC00;padding:2px;">
+                                            <label style="color:#FFFF00;padding-top:2px;" >Thông tin <?php echo $key+1; ?></label>
+                                            <i class="fa fa-times" style="cursor:pointer; float:right; font-size:1.3em; color:#FFFF00; padding-top:2px;" onclick = "remove_description(this)"></i>
+                                        </div>
+                                        <textarea name="description[]" style="width:100%" rows=5><?php echo $value?></textarea>
                                     </div>
-                                    <textarea name="description[]" style="width:100%" rows=5><?php echo $value?></textarea>
-                                </div>
-                            <?php endforeach ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
                         </div>
                         <div class="col-md-12 tab-content" style="margin-top: 10px;">
                             <span class="append-date" id="append-date" style="float: right;cursor: pointer;"><i class="fa-2x fa fa-plus-square" onclick="add_one()"></i></span>

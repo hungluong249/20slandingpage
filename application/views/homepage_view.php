@@ -1,8 +1,18 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
+<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash() ?>" id="csrf_sitecom_token" />
 <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>owl-carousel/css/owl.carousel.min.css">
 <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>owl-carousel/css/owl.theme.default.min.css">
-
+<style type="text/css">
+	.required.has-error{
+		color: red;
+	}
+	.required.has-error input {
+		border: 1px solid red;
+	}
+	.help-block.hidden{
+		display: none;
+	}
+</style>
 <div class="nav-side" id="nav-side">
 	<ul>
 		<li>
@@ -143,23 +153,23 @@
 							<li class="list-inline-item">
 								<?php
 								if ($value['facebook'] != ''): ?>
-									<a href="<?php echo $value['facebook'];?>" target="_blank">';
-									<i class="fab fa-facebook-square"></i>';
+									<a href="<?php echo $value['facebook'];?>" target="_blank">
+									<i class="fab fa-facebook-square"></i>
 									</a>
                                 <?php endif ?>
 							</li>
 							<li class="list-inline-item">
                                 <?php
                                 if ($value['youtube'] != ''): ?>
-                                    <a href="<?php echo $value['youtube'];?>" target="_blank">';
-                                    <i class="fab fa-youtube-square"></i>';
+                                    <a href="<?php echo $value['youtube'];?>" target="_blank">
+                                    <i class="fab fa-youtube-square"></i>
                                     </a>
                                 <?php endif ?>
 							</li>
 							<li class="list-inline-item">
                                 <?php if ($value['instagram'] != ''): ?> 
-                                    <a href="<?php echo $value['instagram'];?>" target="_blank">';
-                                    	<i class="fab fa-instagram"></i>';
+                                    <a href="<?php echo $value['instagram'];?>" target="_blank">
+                                    	<i class="fab fa-instagram"></i>
                                     </a>
                                 <?php endif ?>
 							</li>
@@ -219,15 +229,18 @@
 									<h2 class="title-md">
 										<?php echo $service['title'] ?>
 									</h2>
-									<?php if ($service['desc'] == 1){
-										echo '<p class="paragraph">' . $service['description'] . '</p>';
-									} ?>
+									<?php if (!empty($service['content'])): ?>
+										<p class="paragraph"><?php echo $service['content'];?></p>
+									<?php endif;?>
 									<div class="row">
-										<?php foreach ($service['info'] as $key => $value): ?>
-										<div class="item col">
-											<p class="paragraph"><?php echo $value ?></p>
-										</div>
-										<?php endforeach; ?>
+										<?php $service['description'] = json_decode($service['description']);?>
+										<?php if (!empty($service['description'])): ?>
+											<?php foreach ($service['description'] as $key => $value): ?>
+												<div class="item col">
+													<p class="paragraph"><?php echo $value ?></p>
+												</div>
+											<?php endforeach; ?>
+										<?php endif ?>
 									</div>
 
 								</div>
@@ -236,12 +249,33 @@
 
 						<div class="right d-none d-sm-block col-md-7">
 							<div class="d-flex flex-row justify-content-between">
+								<?php $service['image'] = json_decode($service['image']);?>
+								<?php if (empty($service['avatar'])): ?>
+									<?php if (empty($service['image'])): ?>
+										<?php $img1 = 'assets/img/horizontal.jpg';?>
+									<?php else: ?>
+										<?php 
+											$img1 = 'assets/upload/post/'.$service['image'][0];
+											unset($service['image'][0]);
+											$service['image'] = array_values($service['image']);
+										?>
+									<?php endif ?>
+								<?php else: ?>
+									<?php $img1 = 'assets/upload/post/'.$service['avatar'];?>
+								<?php endif ?>
+								<?php
+									if (!empty($service['avatar'])) {
+							            $k = array_search($service['avatar'], $service['image']);
+							            unset($service['image'][$k]);
+							            $service['image'] = array_values($service['image']);
+									}
+									$img2 = empty($service['image']) ? 'assets/img/horizontal.jpg' : 'assets/upload/post/'.$service['image'][0];
+								?>
 								<div class="mask" id="mask-01">
-									<img src="<?php echo $service['image_01'] ?>" alt="image of <?php echo $service['title'] ?> 01">
+									<img src="<?php echo site_url($img1) ?>" alt="image of <?php echo $service['title'] ?> 01">
 								</div>
-
 								<div class="mask" id="mask-02">
-									<img src="<?php echo $service['image_02'] ?>" alt="image of <?php echo $service['title'] ?> 02">
+									<img src="<?php echo site_url($img2) ?>" alt="image of <?php echo $service['title'] ?> 02">
 								</div>
 							</div>
 						</div>
@@ -268,17 +302,7 @@
 			<ul>
 				<li class="">
 					<div class="mask">
-						<img src="https://images.unsplash.com/photo-1534844624972-72af3082566e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0d231b116fd868277d1e13e6cc55da2c&auto=format&fit=crop&w=1051&q=80" alt="image slider top 01">
-					</div>
-				</li>
-				<li>
-					<div class="mask">
-						<img src="https://images.unsplash.com/photo-1526455026374-a105e60a65a3?ixlib=rb-0.3.5&s=8c1d012fcdefbc4c0b1ed15282115ce4&auto=format&fit=crop&w=1092&q=80" alt="image slider top 02">
-					</div>
-				</li>
-				<li>
-					<div class="mask">
-						<img src="https://images.unsplash.com/photo-1524749292158-7540c2494485?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ab5846a70b2ce31cf27899249b229b1e&auto=format&fit=crop&w=1050&q=80" alt="image slider top 03">
+						<img src="<?php echo site_url('assets/upload/question/'.$question['image_top']);?>" alt="image slider top 01">
 					</div>
 				</li>
 			</ul>
@@ -291,94 +315,91 @@
 						CƠ HỘI <br>
 						NGHỀ NGHIỆP
 					</h1>
-					<div class="row">
-						<div class="col ">
-							<p class="paragraph">
-								Tại 20sections và Division X mỗi thành viên đều là những mảnh ghép vô cùng quan trọng, tại đây chúng ta đối đầu với thách thức và thử thách sự phi thường của bản thân.
-							</p>
 
-							<p class="paragraph">
-								Dù bạn ở vị trí công việc, thuộc team nào bạn cũng đang đóng góp sức mình để tạo ra ảnh hưởng tới hàng triệu người Việt trẻ.
-							</p>
+					<?php if (!empty($job_opportunity)): ?>
+						<?php $job_opportunity['description'] = json_decode($job_opportunity['description']); ?>
+						<div class="row">
+							<?php if (!empty($job_opportunity['description'])): ?>
+								<div class="col ">
+									<?php foreach ($job_opportunity['description'] as $key => $value): ?>
+										<?php if ($key%2 == 0): ?>
+											<p class="paragraph">
+												<?php echo $value;?>
+											</p>
+										<?php endif ?>
+									<?php endforeach ?>
+								</div>
+								<div class="col ">
+									<?php foreach ($job_opportunity['description'] as $key => $value): ?>
+										<?php if ($key%2 != 0): ?>
+											<p class="paragraph">
+												<?php echo $value;?>
+											</p>
+										<?php endif ?>
+									<?php endforeach ?>
+								</div>
+							<?php endif ?>
 						</div>
-
-						<div class="col ">
-							<p class="paragraph">
-								Không có giới hạn ở DivisionX, tại đây không có gì là bất khả thi, DivisionX là môi trường để bạn phát triển và khai phá những tiềm năng của bản thân và thách thức giới hạn sáng tạo
-							</p>
-						</div>
-					</div>
+					<?php endif ?>
 				</div>
 
 				<div class="right col">
 					<div id="surveySlider" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
+							
 							<div class="carousel-item active">
 								<div class="step" id="step-01">
 									<h3 class="title-sm">
-										1/ Bạn ấn tượng bởi tầm nhìn và sứ mệnh của chúng tôi?
+										1. <?php echo $question['question']['question'][0];?>
 									</h3>
 									<div class="row">
-										<div class="item col-md-4">
-											<button class="btn btn-link" role="button" value="1">
-												<h2 class="title-md">Yes</h2>
-											</button>
-										</div>
-
-										<div class="item col-md-4">
-											<button class="btn btn-link" type="button" value="0" data-toggle="modal" data-target="#messageNo">
-												<h2 class="title-md">No</h2>
-											</button>
-										</div>
+										<?php foreach ($question['question']['content'][0] as $k => $val): ?>
+											<div class="item col-md-4">
+												<button class="btn btn-link" <?php echo ($k == 0)?' href="#surveySlider" id="yes-activated" role="button" ':' id="no-activated" type="button" data-toggle="modal" data-target="#messageNo" ';?> value="<?php echo $k;?>">
+													<h2 class="title-md"><?php echo $val;?></h2>
+												</button>
+											</div>
+										<?php endforeach ?>
 									</div>
 								</div>
 							</div>
 							<div class="carousel-item">
 								<div class="step" id="step-02">
 									<h3 class="title-sm">
-										2. Bạn phù hợp với giá trị của chúng tôi
+										2. <?php echo $question['question']['question'][1];?>
 									</h3>
 									<div class="row">
-										<div class="item col-md-4">
-											<button class="btn btn-link" role="button" value="1">
-												<h3 class="title-sm">Táo bạo:</h3>
-												<p class="paragraph">
-													Không ngại dư luận, không ngại rào cản, luôn thách thức các giới hạn
-												</p>
-											</button>
-										</div>
-
-										<div class="item col-md-4">
-											<button class="btn btn-link" role="button" value="2">
-												<h3 class="title-sm">Tiến hoá</h3>
-												<p class="paragraph">
-													Sản phẩm của hôm nay đã tốt hơn hôm qua nhưng không thể bằng sản phẩm của ngày mai
-												</p>
-											</button>
-										</div>
-
-										<div class="item col-md-4">
-											<button class="btn btn-link" role="button" value="3">
-												<h3 class="title-sm">Khác biệt</h3>
-												<p class="paragraph">
-													Muốn khác biệt, luôn khác biệt. Nghĩ và làm như một người tiên phong, một cá nhân xuất chúng
-												</p>
-											</button>
-										</div>
+										<?php foreach ($question['question']['content'][1] as $k => $val): ?>
+											<?php if (empty($question['question']['title'][1][$k]) && empty($question['question']['content'][1][$k])): ?>
+												<?php continue; ?>
+											<?php endif ?>
+											<div class="item col-md-4">
+												<button class="btn btn-link" role="button" value="<?php echo $k;?>">
+													<h3 class="title-sm"><?php echo $question['question']['title'][1][$k];?></h3>
+													<p class="paragraph">
+														<?php echo $question['question']['content'][1][$k];?>
+													</p>
+												</button>
+											</div>
+										<?php endforeach ?>
 									</div>
 								</div>
 							</div>
 							<div class="carousel-item">
 								<div class="step" id="step-03">
 									<h3 class="title-sm">
-										3. Bạn phù hợp với team nào
+										3. <?php echo $question['question']['question'][2];?>
 									</h3>
 									<div class="row">
-										<div class="item col-md-4">
-											<button class="btn btn-link" role="button" value="1">
-												<h3 class="title-sm">TVC</h3>
-											</button>
-										</div>
+										<?php if (!empty($question['question']['content'][2])): ?>
+											<?php foreach ($question['question']['content'][2] as $k => $val): ?>
+												<div class="item col-md-4">
+													<button class="btn btn-link" role="button" value="<?php echo $k;?>">
+														<h3 class="title-sm"><?php echo $val;?></h3>
+													</button>
+												</div>
+											<?php endforeach ?>
+										<?php endif ?>
 									</div>
 								</div>
 							</div>
@@ -389,10 +410,10 @@
 						<button id="sendMessage" class="btn btn-primary disabled" type="button" data-toggle="modal" data-target="">
 							SUBMIT
 						</button>
-						<button id="surveyPrev" class="btn btn-light" href="#surveySlider" role="button" data-slide="prev">
+						<button id="surveyPrev" class="btn btn-light" disabled href="#surveySlider" role="button" data-slide="prev">
 							Back
 						</button>
-						<button id="surveyNext" class="btn btn-light" href="#surveySlider" role="button" data-slide="next">
+						<button id="surveyNext" class="btn btn-light " disabled href="#surveySlider" role="button" data-slide="next">
 							Next
 						</button>
 						<button id="surveyReset" class="btn btn-light" role="button">
@@ -407,17 +428,7 @@
 			<ul>
 				<li>
 					<div class="mask">
-						<img src="https://images.unsplash.com/photo-1526455026374-a105e60a65a3?ixlib=rb-0.3.5&s=8c1d012fcdefbc4c0b1ed15282115ce4&auto=format&fit=crop&w=1092&q=80" alt="image slider top 02">
-					</div>
-				</li>
-				<li>
-					<div class="mask">
-						<img src="https://images.unsplash.com/photo-1524749292158-7540c2494485?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ab5846a70b2ce31cf27899249b229b1e&auto=format&fit=crop&w=1050&q=80" alt="image slider top 03">
-					</div>
-				</li>
-				<li>
-					<div class="mask">
-						<img src="https://images.unsplash.com/photo-1534844624972-72af3082566e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0d231b116fd868277d1e13e6cc55da2c&auto=format&fit=crop&w=1051&q=80" alt="image slider top 01">
+						<img src="<?php echo site_url('assets/upload/question/'.$question['image_bottom']);?>" alt="image slider top 02">
 					</div>
 				</li>
 			</ul>
@@ -459,32 +470,36 @@
                 echo form_open_multipart('homepage/get_data_to_send_mail', array('class' => 'form-horizontal'));
                 ?>
 
-				<div class="form-group col-xs-12">
+				<div class="form-group col-xs-12 required">
                     <?php
                     echo form_error('contact_name');
                     echo form_input('contact_name', set_value('contact_name'), 'class="form-control" id="contact_name" placeholder="Họ và tên (*)"');
                     ?>
+                    <span class="help-block hidden">Vui lòng nhập trường này</span>
 				</div>
 
-				<div class="form-group col-xs-12">
+				<div class="form-group col-xs-12 required">
                     <?php
                     echo form_error('contact_mail');
                     echo form_input('contact_mail', set_value('contact_mail'), 'class="form-control" id="contact_mail" placeholder="Nhập Email của bạn (*)"');
                     ?>
+                    <span class="help-block hidden">Vui lòng nhập trường này</span>
 				</div>
 
-				<div class="form-group col-xs-12">
+				<div class="form-group col-xs-12 required">
                     <?php
                     echo form_error('contact_phone');
-                    echo form_input('contact_phone', set_value('contact_phone'), 'class="form-control" id="contact_phone" placeholder="Nhập số điện thoại của bạn (*)"');
+                    echo form_input('contact_phone', set_value('contact_phone'), 'class="form-control"  onpaste="return false;" onkeypress=" return isNumberKey(event)" id="contact_phone" placeholder="Nhập số điện thoại của bạn (*)"');
                     ?>
+                    <span class="help-block hidden">Vui lòng nhập trường này</span>
 				</div>
 
-				<div class="form-group col-xs-12">
+				<div class="form-group col-xs-12 required">
                     <?php
                     echo form_error('contact_address');
                     echo form_input('contact_address', set_value('contact_address'), 'class="form-control" id="contact_address" placeholder="Địa chỉ (*)"');
                     ?>
+                    <span class="help-block hidden">Vui lòng nhập trường này</span>
 				</div>
 
 				<div class="form-group col-xs-12">
@@ -495,7 +510,7 @@
 				</div>
 
 				<div class="col-xs-12">
-                    <?php echo form_submit('submit', 'Gửi đăng ký', 'class="btn btn-primary"'); ?>
+                    <span class="btn btn-primary" onclick="send_mail()">Gửi đăng ký</span>
 				</div>
                 <?php echo form_close(); ?>
 			</div>
@@ -517,21 +532,13 @@
 
 <!-- Owl Carousel -->
 <script src="<?php echo site_url('assets/lib/') ?>owl-carousel/js/owl.carousel.min.js"></script>
-
+<script src="<?php echo site_url('assets/js/homepage.js') ?>"></script>
 
 
 
 <script type="text/javascript">
-	for (var i = 0; i < document.querySelectorAll('#paragraph-sm-none p').length; i++) { 
-		document.querySelectorAll('#paragraph-sm-none p')[i].classList.add('d-block'); 
-		document.querySelectorAll('#paragraph-sm-none p')[i].classList.add('d-sm-none'); 
-	}
-
-
     $(document).ready(function() {
-
         new WOW().init();
-
         $(".owl-carousel").owlCarousel({
 			loop: true,
             margin: 30,

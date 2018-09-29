@@ -5,14 +5,14 @@
         <h1>
             Chi tiết
             <small>
-                khách hàng
+                Customer
             </small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="#"><i class="fa fa-dashboard"></i> Chi tiết</a></li>
             <li class="active">
-                khách hàng
+                Customer
             </li>
         </ol>
     </section>
@@ -30,15 +30,15 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
-                            <label class="col-xs-12">Hình ảnh các khách hàng</label>
+                            <label class="col-xs-12">Hình ảnh các Customer</label>
                             <div class="detail-image col-xs-12">
                                 <?php foreach ($detail as $key => $value): ?>
                                     <div class="col-sm-4 col-xs-6 remove_<?php echo $value['id'] ?>" style="position: relative;padding-right:10px;padding-left: 0px; margin-bottom: 10px;">
                                         <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value['image']); ?>" alt="anh-mo-ta" width=100% height=200px>
                                         <?php if ($value['is_activated'] == 0): ?>
-                                            <a href="javascript:void(0);" onclick="deactive('customer', <?php echo $value['id'] ?>, 'Chăc chắn tắt khách hàng')" class="dataActionDelete" title="Tắt khách hàng"><i class="fa-2x fa fa-low-vision" aria-hidden="true" style="cursor: pointer; position: absolute;color:#00FFFF; ?>; top:0px;right:75px;"></i> </a>
+                                            <a href="javascript:void(0);" onclick="deactive('customer', <?php echo $value['id'] ?>, 'Chăc chắn tắt Customer')" class="dataActionDelete" title="Tắt Customer"><i class="fa-2x fa fa-low-vision" aria-hidden="true" style="cursor: pointer; position: absolute;color:#00FFFF; ?>; top:0px;right:75px;"></i> </a>
                                         <?php else: ?>
-                                            <a href="javascript:void(0);" onclick="active('customer', <?php echo $value['id'] ?>, 'Chăc chắn bật khách hàng')" class="dataActionDelete" title="Bật khách hàng"><i class="fa-2x fa fa-eye" aria-hidden="true" style="cursor: pointer; position: absolute;color:#00FFFF; ?>; top:0px;right:75px;"></i> </a>
+                                            <a href="javascript:void(0);" onclick="active('customer', <?php echo $value['id'] ?>, 'Chăc chắn bật Customer')" class="dataActionDelete" title="Bật Customer"><i class="fa-2x fa fa-eye" aria-hidden="true" style="cursor: pointer; position: absolute;color:red; ?>; top:0px;right:75px;"></i> </a>
                                         <?php endif ?>
                                         <i class="fa-2x fa fa-pencil" style="cursor: pointer; position: absolute;color:#00FFFF; top:0px;right: 45px;" onclick="edit_customer('<?php echo $value['id'] ?>')"></i>
                                         <i class="fa-2x fa fa-remove" style="cursor: pointer; position: absolute;color:#00FFFF; top:0px;right: 15px;" aria-hidden="true" onclick="remove('customer', <?php echo $value['id'] ?>)"></i>
@@ -82,7 +82,7 @@
             <div class="col-md-3">
                 <div class="box box-warning">
                     <div class="box-header">
-                        <h3 class="box-title">Thêm mới khách hàng</h3>
+                        <h3 class="box-title">Thêm mới Customer</h3>
                     </div>
                     <div class="box-body">
                         <a href="<?php echo base_url('admin/'.$controller.'/create') ?>" class="btn btn-primary" role="button">Thêm mới</a>

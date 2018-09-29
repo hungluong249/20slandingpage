@@ -31,6 +31,35 @@
                     <a href="<?php echo base_url('admin/post'); ?>" class="small-box-footer">Xem danh sách <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo $creator; ?></h3>
+
+                        <p>Số thành viên</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-sort-numeric-asc"></i>
+                    </div>
+                    <a href="<?php echo base_url('admin/creator'); ?>" class="small-box-footer">Xem danh sách <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo $customer; ?></h3>
+
+                        <p>Số khách hàng</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-sort-numeric-asc"></i>
+                    </div>
+                    <a href="<?php echo base_url('admin/customer/detail'); ?>" class="small-box-footer">Xem danh sách <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         </div>
         <!-- /.row (main row) -->
 

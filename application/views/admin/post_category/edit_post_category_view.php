@@ -54,7 +54,7 @@
                                 echo form_label('Danh mục', 'parent_id_shared');
                                 echo form_error('parent_id_shared');
                                 ?>
-                                <select name="parent_id_shared" class="form-control" >
+                                <select name="parent_id_shared" class="form-control" disabled>
                                     <?php if ($detail['parent_id'] == 0): ?>
                                         <option value="0">Danh mục gốc</option>
                                     <?php endif ?>

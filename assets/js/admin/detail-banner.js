@@ -4,7 +4,7 @@ for (var i = 0; i < document.querySelectorAll('[id^="demo"]').length; i++) {
 }
 switch(window.location.origin){
     case 'http://diamondtour.vn':
-        var HOSTNAMEADMIN = 'http://diamondtour.vn/admin';
+        var HOSTNAMEADMIN = 'http://20slandingpage.vn/admin';
         break;
     default:
         var HOSTNAMEADMIN = 'http://localhost/20slandingpage/admin';

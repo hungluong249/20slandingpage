@@ -53,6 +53,7 @@ class Post_category extends Admin_Controller{
     }
 
 	public function create(){
+        redirect('admin/'. $this->controller .'');
 		$this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -184,6 +185,7 @@ class Post_category extends Admin_Controller{
     }
 
     function remove(){
+        return false;
         $id = $this->input->post('id');
         $this->load->model('post_model');
         if($id &&  is_numeric($id) && ($id > 0)){

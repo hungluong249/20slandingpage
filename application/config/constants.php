@@ -223,4 +223,12 @@ defined('MESSAGE_ERROR_BANNER_ERROR') OR define('MESSAGE_ERROR_BANNER_ERROR', 'K
  * Message file extension
  */
 defined('MESSAGE_EMPTY_IMAGE_ERROR') OR define('MESSAGE_EMPTY_IMAGE_ERROR', 'Bạn phải chọn hình ảnh');
+/**
+ * Message file extension
+ */
+defined('MESSAGE_REGISTRATION_SUCCESS') OR define('MESSAGE_REGISTRATION_SUCCESS', 'Đăng ký thành công!');
+/**
+ * Message file extension
+ */
+defined('MESSAGE_REGISTRATION_ERROR') OR define('MESSAGE_REGISTRATION_ERROR', 'Đăng ký thất bại vui lòng thao tác lại!');
 

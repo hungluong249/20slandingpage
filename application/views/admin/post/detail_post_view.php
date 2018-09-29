@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo site_url('assets/sass/admin/') ?>detail.css">
+<link rel="stylesheet" href="<?php echo site_url('assets/sass/admin/') ?>detailbanner.css">
 
 
 <div class="content-wrapper">
@@ -123,6 +123,10 @@
                     <div class="box-body">
                         <a href="<?php echo base_url('admin/'.$controller.'/edit/'.$detail['id']) ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
                     </div>
+                    <div id="encypted_ppbtn_all"></div>
+                    <div id="myModal" class="modal" style="overflow-y:auto;">
+                        <img class="modal-content" id="img01">
+                    </div>
                 </div>
             </div>
         </div>
@@ -130,10 +134,12 @@
         <!-- END ACCORDION & CAROUSEL-->
     </section>
 </div>
+<script src="<?php echo site_url('assets/js/admin/') ?>showmodalimg.js"></script>
+<script src="<?php echo site_url('assets/js/admin/') ?>detail-banner.js"></script>
 <script type="text/javascript">
 switch(window.location.origin){
     case 'http://diamondtour.vn':
-        var HOSTNAMEADMIN = 'http://diamondtour.vn/admin';
+        var HOSTNAMEADMIN = 'http://20slandingpage.vn/admin';
         break;
     default:
         var HOSTNAMEADMIN = 'http://localhost/20slandingpage/admin';

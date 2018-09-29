@@ -29,7 +29,7 @@
                             <?php
                             echo form_label('Ảnh đại diện', 'image_shared');
                             echo form_error('image_shared');
-                            echo form_upload('image_shared', set_value('image_shared'), 'class="form-control"');
+                            echo form_upload('image_shared[]', set_value('image_shared'), 'multiple class="form-control"');
                             ?>
                             <br>
                         </div>
@@ -129,6 +129,7 @@
             </div>
         `; 
         document.getElementById('add-all-description').insertAdjacentHTML('beforeend', html);
+        document.getElementById('numberdescription').value = document.querySelectorAll('.all-description').length;
     }
     function remove_description(ev){
         document.getElementById('add-all-description').removeChild(ev.closest('.all-description'));
