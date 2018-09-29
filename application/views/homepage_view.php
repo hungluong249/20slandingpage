@@ -510,7 +510,7 @@
 				</div>
 
 				<div class="col-xs-12">
-                    <span class="btn btn-primary" onclick="send_mail()">Gửi đăng ký</span>
+                    <input type="button" class="btn btn-primary" id="sendmail"  onclick="send_mail()" value="Gửi đăng ký" />
 				</div>
                 <?php echo form_close(); ?>
 			</div>
