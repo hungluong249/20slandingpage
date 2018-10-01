@@ -442,7 +442,7 @@ Author: hung.luong@matocreative.vn
 
             #sliderTop{
                 width: 40%;
-                height: 30vh;
+                height: 20vh;
 
                 position: absolute;
                 top: 0;
@@ -451,6 +451,10 @@ Author: hung.luong@matocreative.vn
                 ul{
                     height: 100%;
                     margin-bottom: 0;
+
+                    li{
+                        height: 100%;
+                    }
                 }
             }
 
@@ -481,7 +485,7 @@ Author: hung.luong@matocreative.vn
                 height: 50%;
 
                 position: absolute;
-                top: 30%;
+                top: 25%;
                 left: 0;
                 z-index: 4;
 
@@ -556,88 +560,6 @@ Author: hung.luong@matocreative.vn
                     }
                 }
             }
-
-            /*
-
-            .content{
-                width: 50%;
-
-                position: absolute;
-                top: calc(50vh - 100px);
-                left: calc(16.66% - 200px);
-                z-index: 4;
-            }
-
-            .quest{
-                width: 33.33%;
-                position: absolute;
-                top: 40vh;
-                left: calc(56.66% + 100px);
-                z-index: 4;
-
-                .wrapper{
-                    min-height: 40vh;
-
-                    overflow: hidden;
-
-                    position: relative;
-
-                    .step{
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-
-                        @include transition(300ms);
-
-                        .btn-link{
-                            width: 100%;
-
-                            text-align: center;
-                            white-space: normal;
-
-                            color: $gray-light;
-                            border: 1px solid $gray-light;
-                            border-radius: 7px;
-
-                            @include transition(300ms);
-
-                            &:hover{
-                                color: $gray-dark;
-                                border: 1px solid $gray-dark;
-
-                                @include transition(300ms);
-                            }
-
-                            &.active{
-                                color: $gray-dark;
-                                border: 1px solid $gray-dark;
-
-                                @include transition(300ms);
-                            }
-                        }
-
-                        &.active{
-                            top: 0;
-
-                            @include transition(300ms);
-                        }
-
-                        &:first-of-type{
-                            z-index: 1;
-                        }
-
-                        &:nth-of-type(2){
-                            z-index: 2;
-                        }
-
-                        &:last-of-type{
-                            z-index: 3;
-                        }
-                    }
-                }
-            }
-
-            */
         }
     }
 }
@@ -672,6 +594,21 @@ SMALL DESKTOPS (UNDER 1600px)
                     .item{
                         .mask{
                             height: 300px;
+                        }
+                    }
+                }
+            }
+
+            &#career{
+                .content{
+                    padding-left: 30px;
+                    padding-right: 30px;
+
+                    > .row{
+                        > .right{
+                            .slide{
+                                height: 250px;
+                            }
                         }
                     }
                 }
