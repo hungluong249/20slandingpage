@@ -603,88 +603,7 @@ Author: hung.luong@matocreative.vn
         left: 50%; }
   #homepage .container-fluid#career {
     height: 100vh;
-    position: relative;
-            /*
-
-            .content{
-                width: 50%;
-
-                position: absolute;
-                top: calc(50vh - 100px);
-                left: calc(16.66% - 200px);
-                z-index: 4;
-            }
-
-            .quest{
-                width: 33.33%;
-                position: absolute;
-                top: 40vh;
-                left: calc(56.66% + 100px);
-                z-index: 4;
-
-                .wrapper{
-                    min-height: 40vh;
-
-                    overflow: hidden;
-
-                    position: relative;
-
-                    .step{
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-
-                        @include transition(300ms);
-
-                        .btn-link{
-                            width: 100%;
-
-                            text-align: center;
-                            white-space: normal;
-
-                            color: $gray-light;
-                            border: 1px solid $gray-light;
-                            border-radius: 7px;
-
-                            @include transition(300ms);
-
-                            &:hover{
-                                color: $gray-dark;
-                                border: 1px solid $gray-dark;
-
-                                @include transition(300ms);
-                            }
-
-                            &.active{
-                                color: $gray-dark;
-                                border: 1px solid $gray-dark;
-
-                                @include transition(300ms);
-                            }
-                        }
-
-                        &.active{
-                            top: 0;
-
-                            @include transition(300ms);
-                        }
-
-                        &:first-of-type{
-                            z-index: 1;
-                        }
-
-                        &:nth-of-type(2){
-                            z-index: 2;
-                        }
-
-                        &:last-of-type{
-                            z-index: 3;
-                        }
-                    }
-                }
-            }
-
-            */ }
+    position: relative; }
     #homepage .container-fluid#career ul {
       position: relative;
       height: 100%; }
@@ -715,13 +634,15 @@ Author: hung.luong@matocreative.vn
           transition: all ease-in-out 300ms; }
     #homepage .container-fluid#career #sliderTop {
       width: 40%;
-      height: 30vh;
+      height: 20vh;
       position: absolute;
       top: 0;
       left: 16.66%; }
       #homepage .container-fluid#career #sliderTop ul {
         height: 100%;
         margin-bottom: 0; }
+        #homepage .container-fluid#career #sliderTop ul li {
+          height: 100%; }
     #homepage .container-fluid#career #sliderBottom {
       width: 50%;
       height: 15vh;
@@ -739,7 +660,7 @@ Author: hung.luong@matocreative.vn
       width: 100%;
       height: 50%;
       position: absolute;
-      top: 30%;
+      top: 25%;
       left: 0;
       z-index: 4;
       padding-left: 100px;
@@ -796,7 +717,12 @@ SMALL DESKTOPS (UNDER 1600px)
   #homepage .cover .content .row {
     padding-top: 30px; }
   #homepage .container-fluid#creators .owl-carousel .item .mask {
-    height: 300px; } }
+    height: 300px; }
+  #homepage .container-fluid#career .content {
+    padding-left: 30px;
+    padding-right: 30px; }
+    #homepage .container-fluid#career .content > .row > .right .slide {
+      height: 250px; } }
 /*
 =========================================
 TABLETS (Under 1024px)
