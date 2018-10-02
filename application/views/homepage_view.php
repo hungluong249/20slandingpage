@@ -143,7 +143,12 @@
 			<?php foreach ($result as $key => $value): ?>
 				<div class="item">
 					<div class="mask">
-						<img src="<?php echo site_url('assets/upload/creator/') . $value['image'] ?>" alt="pic of <?php echo $value['name'] ?>">
+						<?php if (!empty($value['image'])): ?>
+							<?php $value['image'] = 'assets/upload/creator/'.$value['image'];?>
+						<?php else: ?>
+							<?php $value['image'] = 'assets/img/horizontal.jpg'; ?>
+						<?php endif ?>
+						<img src="<?php echo site_url($value['image']);?>" alt="pic of <?php echo $value['name'] ?>">
 					</div>
 					<div class="content">
 						<h3 class="title-sm"><?php echo $value['name'] ?></h3>
@@ -302,7 +307,12 @@
 			<ul>
 				<li class="">
 					<div class="mask">
-						<img src="<?php echo site_url('assets/upload/question/'.$question['image_top']);?>" alt="image slider top 01">
+						<?php if (!empty($question['image_top'])): ?>
+							<?php $question['image_top'] = 'assets/upload/question/'.$question['image_top'];?>
+						<?php else: ?>
+							<?php $question['image_top'] = 'assets/img/horizontal.jpg'; ?>
+						<?php endif ?>
+						<img src="<?php echo site_url($question['image_top']);?>" alt="image slider top 01">
 					</div>
 				</li>
 			</ul>
@@ -428,7 +438,12 @@
 			<ul>
 				<li>
 					<div class="mask">
-						<img src="<?php echo site_url('assets/upload/question/'.$question['image_bottom']);?>" alt="image slider top 02">
+						<?php if (!empty($question['image_bottom'])): ?>
+							<?php $question['image_bottom'] = 'assets/upload/question/'.$question['image_bottom'];?>
+						<?php else: ?>
+							<?php $question['image_bottom'] = 'assets/img/horizontal.jpg'; ?>
+						<?php endif ?>
+						<img src="<?php echo site_url($question['image_bottom']);?>" alt="image slider top 02">
 					</div>
 				</li>
 			</ul>

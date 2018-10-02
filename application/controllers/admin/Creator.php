@@ -150,7 +150,8 @@ class Creator extends Admin_Controller{
                     if(!empty($_FILES['image_shared']['name'])){
                         $this->check_img($_FILES['image_shared']['name'], $_FILES['image_shared']['size']);
                     }
-                    if(!empty($_FILES['image_shared']['name'])){                        $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/'.$this->data['controller'], 'assets/upload/'.$this->data['controller'].'/thumb');
+                    if(!empty($_FILES['image_shared']['name'])){                        
+                        $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/'.$this->data['controller'], 'assets/upload/'.$this->data['controller'].'/thumb');
                     }
                     $shared_request = array(
                         'name' => $this->input->post('name'),
@@ -166,8 +167,7 @@ class Creator extends Admin_Controller{
                     if($update){
                         $this->session->set_flashdata('message_success', MESSAGE_EDIT_SUCCESS);
                         if(isset($image) && !empty($this->data['detail']['image'])){
-                            if(file_exists('assets/upload/'. $this->data['controller'] .'/'.$this->data['detail']['image']))
-                            unlink('assets/upload/'. $this->data['controller'] .'/'.$this->data['detail']['image']);
+                            $this->remove_img($id,$this->data['detail']['image'],1);
                         }
                         redirect('admin/'. $this->data['controller'] .'', 'refresh');
                     }else {
@@ -212,6 +212,29 @@ class Creator extends Admin_Controller{
         return $this->return_api(HTTP_BAD_REQUEST);
     }
 
+    function remove_img($id = '',$image= '',$check =0){
+        if($check == 0){
+            $image = $this->input->post('image');
+            $id = $this->input->post('id');
+            $update = $this->creator_model->common_update($id,array('image' => ''));
+        }else{
+            $update = true;
+        }
+        if ($update) {
+            if(file_exists('assets/upload/'. $this->data['controller'] .'/'.$image)){
+                unlink('assets/upload/'. $this->data['controller'] .'/'.$image);
+                $new_array = explode('.', $image);
+                $typeimg = array_pop($new_array);
+                $nameimg = str_replace(".".$typeimg, "", $image);
+                if(file_exists('assets/upload/'. $this->data['controller'] .'/thumb/'.$nameimg.'_thumb.'.$typeimg)){
+                    unlink('assets/upload/'. $this->data['controller'] .'/thumb/'.$nameimg.'_thumb.'.$typeimg);
+                }
+            }
+        }
+        if($check == 0){
+            return $this->return_api(HTTP_SUCCESS,'Xóa thành công!');
+        }
+    }
 
     /**
      * [build_parent_title description]

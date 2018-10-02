@@ -128,7 +128,7 @@
                             <?php if (!empty($value['image'])): ?>
                                 <img src="<?php echo base_url('assets/upload/'.$controller.'/'. $value['image']) ?>" alt="anh-cua-<?php echo $value['slug'] ?>" width=150px height=100px>
                             <?php else: ?>
-                                No image
+                                Chưa có ảnh
                             <?php endif ?>
 
                         </div>

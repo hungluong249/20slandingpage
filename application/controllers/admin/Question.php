@@ -199,13 +199,12 @@ class Question extends Admin_Controller{
                 $update = $this->question_model->common_update($id,array_merge($shared_request,$this->author_data));
                 if($update){
                     $this->session->set_flashdata('message_success', MESSAGE_EDIT_SUCCESS);
+
                     if(isset($image_top) && !empty($this->data['detail']['image_top'])){
-                        if(file_exists('assets/upload/'. $this->data['controller'] .'/'.$this->data['detail']['image_top']))
-                        unlink('assets/upload/'. $this->data['controller'] .'/'.$this->data['detail']['image_top']);
+                        $this->remove_img($id,$this->data['detail']['image_top'],1,'image_top');
                     }
                     if(isset($image_bottom) && !empty($this->data['detail']['image_bottom'])){
-                        if(file_exists('assets/upload/'. $this->data['controller'] .'/'.$this->data['detail']['image_bottom']))
-                        unlink('assets/upload/'. $this->data['controller'] .'/'.$this->data['detail']['image_bottom']);
+                        $this->remove_img($id,$this->data['detail']['image_bottom'],1,'image_bottom');
                     }
                     $reponse = array(
                         'csrf_hash' => $this->security->get_csrf_hash()
@@ -251,6 +250,30 @@ class Question extends Admin_Controller{
         return $this->return_api(HTTP_BAD_REQUEST);
     }
 
+    function remove_img($id = '',$image= '',$check =0,$name = 'image'){
+        if($check == 0){
+            $image = $this->input->post('image');
+            $id = $this->input->post('id');
+            $name = $this->input->post('name');
+            $update = $this->question_model->common_update($id,array($name => ''));
+        }else{
+            $update = true;
+        }
+        if ($update) {
+            if(file_exists('assets/upload/'. $this->data['controller'] .'/'.$image)){
+                unlink('assets/upload/'. $this->data['controller'] .'/'.$image);
+                $new_array = explode('.', $image);
+                $typeimg = array_pop($new_array);
+                $nameimg = str_replace(".".$typeimg, "", $image);
+                if(file_exists('assets/upload/'. $this->data['controller'] .'/thumb/'.$nameimg.'_thumb.'.$typeimg)){
+                    unlink('assets/upload/'. $this->data['controller'] .'/thumb/'.$nameimg.'_thumb.'.$typeimg);
+                }
+            }
+        }
+        if($check == 0){
+            return $this->return_api(HTTP_SUCCESS,'Xóa thành công!');
+        }
+    }
 
     /**
      * [build_parent_title description]

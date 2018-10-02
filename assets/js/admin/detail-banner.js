@@ -3,7 +3,7 @@ for (var i = 0; i < document.querySelectorAll('[id^="demo"]').length; i++) {
     document.querySelectorAll(`[data-target^="#demo"] b`)[i].innerHTML = value;
 }
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
+    case 'http://20s.dragongate.vn':
         var HOSTNAMEADMIN = 'http://20slandingpage.vn/admin';
         break;
     default:

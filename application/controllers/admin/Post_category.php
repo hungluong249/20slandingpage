@@ -167,8 +167,8 @@ class Post_category extends Admin_Controller{
                     $update = $this->post_category_model->common_update($id, $shared_request);
                     if($update){
                         $this->session->set_flashdata('message_success', MESSAGE_EDIT_SUCCESS);
-                        if($image != '' && $image != $detail['image'] && file_exists('assets/public/upload/'. $this->controller .'/'.$detail['image'])){
-                            unlink('assets/public/upload/'. $this->controller .'/'.$detail['image']);
+                        if(isset($image) && !empty($this->data['detail']['image'])){
+                            $this->remove_img($id,$this->data['detail']['image'],1);
                         }
                         redirect('admin/'. $this->controller .'', 'refresh');
                     }else {
@@ -322,6 +322,29 @@ class Post_category extends Admin_Controller{
                 $ids[] = $item['id'];
                 $this->get_multiple_posts_with_category($categories, $item['id'], $ids);
             }
+        }
+    }
+    function remove_img($id = '',$image= '',$check =0){
+        if($check == 0){
+            $image = $this->input->post('image');
+            $id = $this->input->post('id');
+            $update = $this->post_category_model->common_update($id,array('image' => ''));
+        }else{
+            $update = true;
+        }
+        if ($update) {
+            if(file_exists('assets/upload/'. $this->data['controller'] .'/'.$image)){
+                unlink('assets/upload/'. $this->data['controller'] .'/'.$image);
+                $new_array = explode('.', $image);
+                $typeimg = array_pop($new_array);
+                $nameimg = str_replace(".".$typeimg, "", $image);
+                if(file_exists('assets/upload/'. $this->data['controller'] .'/thumb/'.$nameimg.'_thumb.'.$typeimg)){
+                    unlink('assets/upload/'. $this->data['controller'] .'/thumb/'.$nameimg.'_thumb.'.$typeimg);
+                }
+            }
+        }
+        if($check == 0){
+            return $this->return_api(HTTP_SUCCESS,'Xóa thành công!');
         }
     }
 }
