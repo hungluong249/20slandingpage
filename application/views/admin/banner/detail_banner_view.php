@@ -32,18 +32,22 @@
                         <div class="row">
                             <label class="col-xs-12">Hình ảnh</label>
                             <div class="detail-image col-xs-12">
-                                <?php foreach ($detail['image']['image'] as $key => $value): ?>
+                                <?php if (!empty($detail['image']['image'])): ?>
+                                    <?php foreach ($detail['image']['image'] as $key => $value): ?>
 
-                                    <div class="col-sm-4 col-xs-6 row_<?php echo $key;?>" style="position: relative;padding-right:10px;padding-left: 0px; margin-bottom: 10px;">
-                                        <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value); ?>" alt="anh-mo-ta" width=100% height=200px>
-                                        <i class="fa-2x fa fa-check <?php echo ($detail['image']['avata'] == $value) ?'avata':''; ?>" style="cursor: pointer; position: absolute;color:<?php echo ($detail['image']['avata'] == $value) ?'green':'black'; ?>; top:0px;right:40px;" onclick="activated_image('<?php echo $controller;?>','<?php echo $value; ?>','<?php echo $key ?>')"></i>
-                                        <i class="fa-2x fa fa-times" style="cursor: pointer; position: absolute;color:red; top:0px;right: 15px;" onclick="remove_image_banner('<?php echo $controller;?>','<?php echo $value; ?>','<?php echo $key ?>')"></i>
-                                    </div>
+                                        <div class="col-sm-4 col-xs-6 row_<?php echo $key;?>" style="position: relative;padding-right:10px;padding-left: 0px; margin-bottom: 10px;">
+                                            <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value); ?>" alt="anh-mo-ta" width=100% height=200px>
+                                            <i class="fa-2x fa fa-check <?php echo ($detail['image']['avata'] == $value) ?'avata':''; ?>" style="cursor: pointer; position: absolute;color:<?php echo ($detail['image']['avata'] == $value) ?'green':'black'; ?>; top:0px;right:40px;" onclick="activated_image('<?php echo $controller;?>','<?php echo $value; ?>','<?php echo $key ?>')"></i>
+                                            <i class="fa-2x fa fa-times" style="cursor: pointer; position: absolute;color:red; top:0px;right: 15px;" onclick="remove_image_banner('<?php echo $controller;?>','<?php echo $value; ?>','<?php echo $key ?>')"></i>
+                                        </div>
 
-                                   <!--  <div class="col-xs-4" style="padding-left: 0px;">
-                                        <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value); ?>" alt="anh-mo-ta" width=100% height=200px>
-                                    </div> -->
-                                <?php endforeach ?>
+                                       <!--  <div class="col-xs-4" style="padding-left: 0px;">
+                                            <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value); ?>" alt="anh-mo-ta" width=100% height=200px>
+                                        </div> -->
+                                    <?php endforeach ?>
+                                <?php else: ?>
+                                    Chưa có ảnh
+                                <?php endif ?>
                             </div>
                             <div class="detail-info col-md-6 hidden" style="margin-top: 5px;">
                                 <label>Status: </label>

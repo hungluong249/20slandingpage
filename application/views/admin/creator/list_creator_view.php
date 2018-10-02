@@ -77,7 +77,11 @@
                                     <tr class="remove_<?php echo $value['id'] ?>">
                                         <td><?php echo $i++ ?></td>
                                         <td>
-                                            <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value['image']) ?>" alt="anh-mo-ta" width=170px height=140px>
+                                            <?php if (!empty($value['image'])): ?>
+                                                <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value['image']) ?>" alt="anh-mo-ta" width=170px height=140px>
+                                            <?php else: ?>
+                                                Chưa có ảnh
+                                            <?php endif ?>
                                         </td>
                                         <td><?php echo $value['name'] ?></td>
                                         <td>

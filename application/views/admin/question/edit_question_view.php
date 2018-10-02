@@ -28,7 +28,11 @@
                         </div>
                         <div class="col-xs-12">
                             <label class="col-xs-12" style="padding: 0px;" for="image_shared">Hình ảnh top đang dùng</label>
-                            <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$detail['image_top']); ?>" alt="anh-mo-ta"  width=200 height=150>
+                            <?php if (!empty($detail['image_top'])): ?>
+                                <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$detail['image_top']); ?>" alt="anh-mo-ta"  width=200 height=150>
+                            <?php else: ?>
+                                Chưa có hình ảnh
+                            <?php endif ?>
                         </div>
                         <div class="col-xs-12">
                             <?php
@@ -38,8 +42,12 @@
                             ?>
                         </div>
                         <div class="col-xs-12">
-                            <label class="col-xs-12" for="image_shared">Hình ảnh bottom đang dùng</label>
-                            <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$detail['image_bottom']); ?>" alt="anh-mo-ta" width=200 height=150>
+                            <label class="col-xs-12" style="padding: 0px;" for="image_shared">Hình ảnh bottom đang dùng</label>
+                            <?php if (!empty($detail['image_bottom'])): ?>
+                                <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$detail['image_bottom']); ?>" alt="anh-mo-ta" width=200 height=150>
+                            <?php else: ?>
+                                Chưa có hình ảnh
+                            <?php endif ?>
                         </div>
                         <div class="col-xs-12">
                             <?php

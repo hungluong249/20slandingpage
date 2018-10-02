@@ -25,11 +25,15 @@
                         </div>
                         <div class="form-group col-xs-12">
                             <label class="col-xs-12" for="image_shared" style="padding: 0px;">Hình ảnh hiện có</label>
-                            <?php foreach ($detail['image']['image'] as $key => $value): ?>
-                                <div class="col-xs-3" style="padding-left:0px;">
-                                    <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value); ?>" alt="anh-mo-ta" width=100% height="190px">
-                                </div>
-                            <?php endforeach; ?>
+                            <?php if (!empty($detail['image']['image'])): ?>
+                                <?php foreach ($detail['image']['image'] as $key => $value): ?>
+                                    <div class="col-xs-3" style="padding-left:0px;">
+                                        <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$value); ?>" alt="anh-mo-ta" width=100% height="190px">
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                Chưa có ảnh
+                            <?php endif ?>
                         </div>
                         <div class="form-group col-xs-12">
                             <?php

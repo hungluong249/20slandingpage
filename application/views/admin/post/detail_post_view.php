@@ -138,7 +138,7 @@
 <script src="<?php echo site_url('assets/js/admin/') ?>detail-banner.js"></script>
 <script type="text/javascript">
 switch(window.location.origin){
-    case 'http://diamondtour.vn':
+    case 'http://20s.dragongate.vn':
         var HOSTNAMEADMIN = 'http://20slandingpage.vn/admin';
         break;
     default:

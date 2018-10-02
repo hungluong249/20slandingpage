@@ -21,7 +21,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash() ?>" id="csrf" />
+        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash() ?>" id="csrf_seafood_token" />
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-md-9">
@@ -34,11 +34,18 @@
                         <div class="row">
                             <div class="detail-image col-md-6">
                                 <label>Hình ảnh</label>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$detail['image']); ?>" alt="anh-mo-ta" width=200>
+                                <?php if (!empty($detail['image'])): ?>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-sm-4 col-xs-6 remove_img" style="position: relative;padding-right:10px;padding-left: 0px; margin-bottom: 10px;">
+                                                <img src="<?php echo base_url('assets/upload/'.$controller.'/'.$detail['image']); ?>" alt="anh-mo-ta" width=200>
+                                                <i class="fa-2x fa fa-times" style="cursor: pointer; position: absolute;color:red; top:0px;left: 170px;" onclick="remove_one('<?php echo $controller;?>','<?php echo $detail['image']; ?>','<?php echo $detail['id']; ?>')"></i>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php else: ?>
+                                    : Chưa có hình ảnh
+                                <?php endif ?>
                             </div>
                             <div class="col-md-12" style="margin-top: 5px;">
                                 <div class="table-responsive">
@@ -111,3 +118,27 @@
 </div>
 <script src="<?php echo site_url('assets/js/admin/') ?>showmodalimg.js"></script>
 <script src="<?php echo site_url('assets/js/admin/') ?>detail-banner.js"></script>
+<script type="text/javascript">
+    function remove_one(controller, image,id){
+        if(confirm('Chắc chắn xóa ảnh này?')){
+            let data = new FormData();
+            data.append('csrf_seafood_token', document.getElementById('csrf_seafood_token').value);
+            data.append('image', image);
+            data.append('id', id);
+            var url = HOSTNAMEADMIN + '/' + controller + '/remove_img';
+            fetch(url,{method: "POST",body: data}
+            ).then(
+                response => response.json()
+            ).then(
+                html => {
+                    if(html.status == 200){
+                        $(`.remove_img`).fadeOut();
+                    }
+                    alert(html.message);
+                    location.reload();
+                }
+
+            );
+        }
+    }
+</script>

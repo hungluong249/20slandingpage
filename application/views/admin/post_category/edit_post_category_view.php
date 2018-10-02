@@ -27,7 +27,11 @@
                         <div class="form-group col-xs-12">
                             <label for="image_shared">Hình ảnh đang dùng</label>
                             <br>
-                            <img src="<?php echo base_url('assets/upload/'. $controller .'/'. $detail['image']); ?>" width=250px>
+                            <?php if (!empty($detail['image'])): ?>
+                                <img src="<?php echo base_url('assets/upload/'. $controller .'/'. $detail['image']); ?>" width=250px>
+                            <?php else: ?>
+                                Chưa có hình ảnh
+                            <?php endif ?>
                             <br>
                         </div>
                         <div class="form-group col-xs-12">
