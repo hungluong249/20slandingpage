@@ -113,7 +113,7 @@
 			<div class="left col-xs-12 col-md-7">
 				<div class="mask wow fadeInUp">
 					<?php if (!empty($division_x['image'])): ?>
-						<?php $division_x['image'] = 'assets/upload/banner/'.$division_x['image'];?>
+						<?php $division_x['image'] = 'assets/upload/post_category/'.$division_x['image'];?>
 					<?php else: ?>
 						<?php $division_x['image'] = 'assets/img/horizontal.jpg';?>
 					<?php endif ?>
