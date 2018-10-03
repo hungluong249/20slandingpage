@@ -112,7 +112,12 @@
 		<div class="row">
 			<div class="left col-xs-12 col-md-7">
 				<div class="mask wow fadeInUp">
-					<img src="<?php echo site_url('assets/upload/post_category/'.$division_x['image']) ?>" width="100%" alt="logo brand">
+					<?php if (!empty($division_x['image'])): ?>
+						<?php $division_x['image'] = 'assets/upload/banner/'.$division_x['image'];?>
+					<?php else: ?>
+						<?php $division_x['image'] = 'assets/img/horizontal.jpg';?>
+					<?php endif ?>
+					<img src="<?php echo site_url($division_x['image']) ?>" width="100%" alt="logo brand">
 				</div>
 
 				<div class="content" id="paragraph-sm-none">
