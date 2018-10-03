@@ -4,7 +4,7 @@ for (var i = 0; i < document.querySelectorAll('[id^="demo"]').length; i++) {
 }
 switch(window.location.origin){
     case 'http://20s.dragongate.vn':
-        var HOSTNAMEADMIN = 'http://20slandingpage.vn/admin';
+        var HOSTNAMEADMIN = 'http://20s.dragongate.vn/admin';
         break;
     default:
         var HOSTNAMEADMIN = 'http://localhost/20slandingpage/admin';
