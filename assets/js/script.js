@@ -35,6 +35,15 @@ $(document).ready(function(){
         }, 300);
         navStatus = 0;
     });
+    
+    $('.nav-side .wrapper').click(function(){
+        $('#btn-nav-expand').removeClass('active');
+        $('#nav-side').removeClass('active');
+        $('#homepage').animate({
+            marginRight : '0'
+        }, 300);
+        navStatus = 0;
+    });
 
     $(window).scroll(function () {
         //if you hard code, then use console

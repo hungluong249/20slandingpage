@@ -1,5 +1,5 @@
 
-<footer class="footer container-fluid">
+<footer class="footer container-fluid" id="contact">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="left col">
