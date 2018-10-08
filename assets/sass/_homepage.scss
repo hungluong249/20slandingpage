@@ -11,21 +11,36 @@ Author: hung.luong@matocreative.vn
  */
 
 .nav-side{
-    width: 25%;
+    width: 100vw;
     height: 100vh;
 
     position: fixed;
     top: 0;
     left: 100%;
-    z-index: 1039;
-
-    @include gradient-primary(#EF4625, #F2AB1E);
-
-    padding: 150px 30px;
+    z-index: 1037;
 
     @include transition(300ms);
 
+    display: flex;
+    flex-direction: row;
+
+    .wrapper{
+        width: 75%;
+        height: 100%;
+
+        background: rgba(0,0,0,0.0);
+
+        @include transition(300ms);
+    }
+
     ul{
+        width: 25%;
+        height: 100%;
+
+        padding: 150px 30px;
+
+        @include gradient-primary(#EF4625, #F2AB1E);
+
         li{
             font-size: 2rem;
             font-weight: 700;
@@ -41,9 +56,15 @@ Author: hung.luong@matocreative.vn
     }
 
     &.active{
-        left: 75%;
+        left: 0;
 
         @include transition(300ms);
+
+        .wrapper{
+            background: rgba(0,0,0,0.5);
+
+            @include transition(300ms);
+        }
     }
 }
 
@@ -71,7 +92,7 @@ Author: hung.luong@matocreative.vn
             left: 30px;
 
             @include gradient-primary(#EF4625, #F2AB1E);
-            filter: opacity(85%);
+            filter: opacity(50%);
         }
 
         .content{
@@ -86,7 +107,7 @@ Author: hung.luong@matocreative.vn
 
                     h1{
                         &.title-lg{
-                            color: #fff;
+                            color: $primary;
                         }
                     }
                 }
@@ -637,7 +658,13 @@ MOBILE DEVICES (Under 768px)
     .nav-side{
         width: 75%;
 
+        .wrapper{
+            display: none;
+        }
+
         ul{
+            width: 100%;
+
             li{
                 font-size: 1.25rem;
             }
@@ -761,6 +788,14 @@ MOBILE DEVICES (Under 768px)
                     .row{
                         margin-left: -15px;
                         margin-right: -15px;
+                    }
+
+                    > .row{
+                        > .right{
+                            .slide{
+                                height: 450px;
+                            }
+                        }
                     }
                 }
 

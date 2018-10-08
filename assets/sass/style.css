@@ -372,40 +372,61 @@ Author: hung.luong@matocreative.vn
 ===========================
  */
 .nav-side {
-  width: 25%;
+  width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 100%;
-  z-index: 1039;
-  background: #EF4625;
-  background: -moz-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, #EF4625), color-stop(100%, #F2AB1E));
-  background: -webkit-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
-  background: -o-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
-  background: -ms-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
-  background: linear-gradient(to right, #EF4625 0%, #F2AB1E 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start', endColorstr='$end', GradientType=1 );
-  padding: 150px 30px;
+  z-index: 1037;
   -webkit-transition: all ease-in-out 300ms;
   -moz-transition: all ease-in-out 300ms;
   -ms-transition: all ease-in-out 300ms;
   -o-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms; }
-  .nav-side ul li {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 30px; }
-    .nav-side ul li a {
-      color: #fff;
-      text-transform: uppercase; }
-  .nav-side.active {
-    left: 75%;
+  transition: all ease-in-out 300ms;
+  display: flex;
+  flex-direction: row; }
+  .nav-side .wrapper {
+    width: 75%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
     -webkit-transition: all ease-in-out 300ms;
     -moz-transition: all ease-in-out 300ms;
     -ms-transition: all ease-in-out 300ms;
     -o-transition: all ease-in-out 300ms;
     transition: all ease-in-out 300ms; }
+  .nav-side ul {
+    width: 25%;
+    height: 100%;
+    padding: 150px 30px;
+    background: #EF4625;
+    background: -moz-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #EF4625), color-stop(100%, #F2AB1E));
+    background: -webkit-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
+    background: -o-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
+    background: -ms-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
+    background: linear-gradient(to right, #EF4625 0%, #F2AB1E 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start', endColorstr='$end', GradientType=1 ); }
+    .nav-side ul li {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px; }
+      .nav-side ul li a {
+        color: #fff;
+        text-transform: uppercase; }
+  .nav-side.active {
+    left: 0;
+    -webkit-transition: all ease-in-out 300ms;
+    -moz-transition: all ease-in-out 300ms;
+    -ms-transition: all ease-in-out 300ms;
+    -o-transition: all ease-in-out 300ms;
+    transition: all ease-in-out 300ms; }
+    .nav-side.active .wrapper {
+      background: rgba(0, 0, 0, 0.5);
+      -webkit-transition: all ease-in-out 300ms;
+      -moz-transition: all ease-in-out 300ms;
+      -ms-transition: all ease-in-out 300ms;
+      -o-transition: all ease-in-out 300ms;
+      transition: all ease-in-out 300ms; }
 
 #homepage .cover {
   padding-left: 30px;
@@ -429,7 +450,7 @@ Author: hung.luong@matocreative.vn
     background: -ms-linear-gradient(left, #EF4625 0%, #F2AB1E 100%);
     background: linear-gradient(to right, #EF4625 0%, #F2AB1E 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start', endColorstr='$end', GradientType=1 );
-    filter: opacity(85%); }
+    filter: opacity(50%); }
   #homepage .cover .content .row {
     margin-left: 0;
     margin-right: 0;
@@ -437,7 +458,7 @@ Author: hung.luong@matocreative.vn
     #homepage .cover .content .row .left {
       padding-left: 100px; }
       #homepage .cover .content .row .left h1.title-lg {
-        color: #fff; }
+        color: #EF4625; }
     #homepage .cover .content .row .right {
       text-align: right; }
       #homepage .cover .content .row .right ul li {
@@ -736,8 +757,12 @@ MOBILE DEVICES (Under 768px)
 @media (max-width: 768px) {
   .nav-side {
     width: 75%; }
-    .nav-side ul li {
-      font-size: 1.25rem; }
+    .nav-side .wrapper {
+      display: none; }
+    .nav-side ul {
+      width: 100%; }
+      .nav-side ul li {
+        font-size: 1.25rem; }
     .nav-side.active {
       left: 25%; }
 
@@ -795,6 +820,8 @@ MOBILE DEVICES (Under 768px)
         #homepage .container-fluid#career .content .row {
           margin-left: -15px;
           margin-right: -15px; }
+        #homepage .container-fluid#career .content > .row > .right .slide {
+          height: 450px; }
       #homepage .container-fluid#career .quest {
         width: 100%;
         position: static;

@@ -14,6 +14,7 @@
 	}
 </style>
 <div class="nav-side" id="nav-side">
+	<div class="wrapper"></div>
 	<ul>
 		<li>
 			<a href="#about">
@@ -325,7 +326,7 @@
 
 		<div class="content">
 			<div class="row">
-				<div class="left col">
+				<div class="left col-xs-12 col-md-6">
 					<h1 class="title-lg">
 						CƠ HỘI <br>
 						NGHỀ NGHIỆP
@@ -358,7 +359,7 @@
 					<?php endif ?>
 				</div>
 
-				<div class="right col">
+				<div class="right col-xs-12 col-md-6">
 					<div id="surveySlider" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
 							
@@ -461,7 +462,7 @@
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-warning">
-				<h5 class="modal-title" id="messageNoTitle">Modal title</h5>
+				<h5 class="modal-title" id="messageNoTitle">DivsionX</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
