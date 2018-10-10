@@ -1,6 +1,6 @@
 switch(window.location.origin){
     case 'http://20slandingpage.vn':
-        var HOSTNAME = 'http://20slandingpage.vn/';
+        var HOSTNAME = 'http://20s.dragongate.vn/';
         break;
     default:
         var HOSTNAME = 'http://localhost/20slandingpage/';

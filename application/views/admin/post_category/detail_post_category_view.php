@@ -130,7 +130,7 @@
 <script type="text/javascript">
     switch(window.location.origin){
         case 'http://20slandingpage.vn':
-            var HOSTNAMEADMIN = 'http://20slandingpage.vn/admin';
+            var HOSTNAMEADMIN = 'http://20s.dragongate.vn/admin';
             break;
         default:
             var HOSTNAMEADMIN = 'http://localhost/20slandingpage/admin';
