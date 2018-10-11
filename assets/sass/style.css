@@ -306,8 +306,11 @@ MOBILE DEVICES (Under 768px)
  */
 @media (max-width: 768px) {
   header .container-fluid {
-    padding-left: 30px;
-    padding-right: 30px; }
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-top: 0; }
+    header .container-fluid .nav-brand img {
+      width: 100px; }
   header.active .container-fluid {
     padding-top: 7px;
     padding-bottom: 7px;
