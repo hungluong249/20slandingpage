@@ -587,8 +587,15 @@ Author: hung.luong@matocreative.vn
               height: 100%; }
               #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .left .d-flex .content {
                 padding-bottom: 100px; }
-                #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .left .d-flex .content h4 {
-                  margin-bottom: 15px; }
+                #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .left .d-flex .content h3 {
+                  width: fit-content;
+                  margin-bottom: 15px;
+                  padding: 7px 15px;
+                  color: #fff;
+                  background-color: #EF4625;
+                  -webkit-border-radius: 7px;
+                  -moz-border-radius: 7px;
+                  border-radius: 7px; }
                 #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .left .d-flex .content h2 {
                   color: #EF4625;
                   margin-bottom: 50px; }
