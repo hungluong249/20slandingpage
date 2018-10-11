@@ -360,8 +360,18 @@ Author: hung.luong@matocreative.vn
                                     .content{
                                         padding-bottom: 100px;
 
-                                        h4{
+                                        h3{
+                                            width: fit-content;
+
                                             margin-bottom: 15px;
+                                            padding: 7px 15px;
+
+                                            color: #fff;
+                                            background-color: $primary;
+
+                                            -webkit-border-radius: 7px;
+                                            -moz-border-radius: 7px;
+                                            border-radius: 7px;
                                         }
                                         
                                         h2{
