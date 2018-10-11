@@ -19,7 +19,7 @@
 						<i class="fas fa-phone"></i> <a href="tel:024 1234 5678">024 1234 5678</a>
 					</li>
 					<li class="list-inline-item">
-						<i class="fas fa-envelope"></i> <a href="mailto:sale@20section.com">sale@20section.com</a>
+						<i class="fas fa-envelope"></i> <a href="mailto:sale@20section.com">contact@20section.com</a>
 					</li>
 					<li class="list-inline-item">
 						<i class="fas fa-map-marker"></i> Fl 4th, 19 Nguyen Binh Khiem, Hanoi

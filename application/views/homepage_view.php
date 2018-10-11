@@ -236,7 +236,7 @@
 						<div class="left col-xs-12 col-md-5">
 							<div class="d-flex align-items-end">
 								<div class="content">
-									<h4 class="subtitle-sm">Dịch vụ của chúng tôi</h4>
+									<h3 class="title-sm">Our Services</h3>
 									<h2 class="title-md">
 										<?php echo $service['title'] ?>
 									</h2>
@@ -247,8 +247,10 @@
 										<?php $service['description'] = json_decode($service['description']);?>
 										<?php if (!empty($service['description'])): ?>
 											<?php foreach ($service['description'] as $key => $value): ?>
-												<div class="item col">
-													<p class="paragraph"><?php echo $value ?></p>
+												<div class="item col-xs-12 col-lg-4">
+													<p class="paragraph">
+														<i class="fas fa-caret-right"></i> <?php echo $value ?>
+													</p>
 												</div>
 											<?php endforeach; ?>
 										<?php endif ?>
@@ -336,6 +338,15 @@
 						<?php $job_opportunity['description'] = json_decode($job_opportunity['description']); ?>
 						<div class="row">
 							<?php if (!empty($job_opportunity['description'])): ?>
+                                <?php foreach ($job_opportunity['description'] as $key => $value): ?>
+
+									<div class="col-xs-12 col-xl-4 ">
+										<p class="paragraph">
+                                        	<i class="fas fa-caret-right"></i> <?php echo $value;?>
+										</p>
+									</div>
+                                <?php endforeach ?>
+								<!--
 								<div class="col ">
 									<?php foreach ($job_opportunity['description'] as $key => $value): ?>
 										<?php if ($key%2 == 0): ?>
@@ -354,6 +365,7 @@
 										<?php endif ?>
 									<?php endforeach ?>
 								</div>
+								-->
 							<?php endif ?>
 						</div>
 					<?php endif ?>

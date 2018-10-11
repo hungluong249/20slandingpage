@@ -92,6 +92,12 @@ $(document).ready(function(){
         $this.carousel({
             interval: false
         });
+        
+        // Set Auto Next on First Slide
+        $('#step-01 #yes-activated').click(function(){
+            $('#surveySlider').carousel('next');
+        });
+        
         // Set disabled first item
         if ( $('#surveySlider .carousel-item:first-of-type').hasClass('active') ){
             $('button#surveyPrev').attr('disabled','disabled');

@@ -221,7 +221,7 @@ Author: hung.luong@matocreative.vn
                     button{
                         &.owl-dot{
                             width: 10px;
-                            height: 10px;
+                            height: 30px;
 
                             margin-right: 15px;
 
@@ -233,7 +233,7 @@ Author: hung.luong@matocreative.vn
 
                         span{
                             width: 10px;
-                            height: 10px;
+                            height: 30px;
 
 
                         }
@@ -367,6 +367,12 @@ Author: hung.luong@matocreative.vn
                                         h2{
                                             color: $primary;
                                             margin-bottom: 50px;
+                                        }
+
+                                        p{
+                                            i{
+                                                color: $primary;
+                                            }
                                         }
                                     }
                                 }
@@ -525,6 +531,22 @@ Author: hung.luong@matocreative.vn
 
                         p{
                             color: $gray-light;
+
+                            padding-left: 35px;
+                            padding-top: 15px;
+
+                            i{
+                                color: $primary;
+
+                                margin-left: -13px;
+                                -webkit-transform: translateY(2px);
+                                -moz-transform: translateY(2px);
+                                -ms-transform: translateY(2px);
+                                -o-transform: translateY(2px);
+                                transform: translateY(2px);
+
+                                font-size: 1.5rem;
+                            }
                         }
                     }
 
@@ -560,8 +582,8 @@ Author: hung.luong@matocreative.vn
                                             }
 
                                             &.active{
-                                                color: $gray-dark;
-                                                border: 1px solid $gray-dark;
+                                                color: $primary;
+                                                border: 1px solid $primary;
                                             }
                                         }
                                     }
@@ -683,7 +705,7 @@ MOBILE DEVICES (Under 768px)
 
         .cover{
             .overlay{
-                left: 0;
+                display: none;
             }
 
             .content{
@@ -713,12 +735,12 @@ MOBILE DEVICES (Under 768px)
                 .row{
                     .left{
                         .mask{
-                            width: 50%;
-                            margin-left: 50%;
+                            display: none;
                         }
 
                         .content{
                             left: 15px;
+                            top: 100px;
 
                             padding-left: 30px;
                             padding-right: 30px;
@@ -749,19 +771,19 @@ MOBILE DEVICES (Under 768px)
                         padding: 0 45px;
 
                         .mask{
-                            height: 300px;
+                            height: 270px;
                         }
                     }
 
                     .owl-nav{
-                        margin-left: 45px;
+                        margin-left: 0px;
                     }
                 }
             }
 
             &#services{
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-left: 0px;
+                padding-right: 0px;
             }
 
             &#career{
@@ -791,6 +813,11 @@ MOBILE DEVICES (Under 768px)
                     }
 
                     > .row{
+                        >.left{
+                            .row{
+                            }
+                        }
+
                         > .right{
                             .slide{
                                 height: 450px;
