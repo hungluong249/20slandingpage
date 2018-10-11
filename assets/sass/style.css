@@ -515,14 +515,14 @@ Author: hung.luong@matocreative.vn
       counter-reset: dots; }
       #homepage .container-fluid#creators .owl-carousel .owl-dots button.owl-dot {
         width: 10px;
-        height: 10px;
+        height: 30px;
         margin-right: 15px; }
         #homepage .container-fluid#creators .owl-carousel .owl-dots button.owl-dot:before {
           counter-increment: dots;
           content: counter(dots); }
       #homepage .container-fluid#creators .owl-carousel .owl-dots button span {
         width: 10px;
-        height: 10px; }
+        height: 30px; }
     #homepage .container-fluid#creators .owl-carousel .item .mask {
       width: 100%;
       height: 450px; }
@@ -589,6 +589,8 @@ Author: hung.luong@matocreative.vn
                 #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .left .d-flex .content h2 {
                   color: #EF4625;
                   margin-bottom: 50px; }
+                #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .left .d-flex .content p i {
+                  color: #EF4625; }
             #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .right .d-flex {
               height: 100%; }
               #homepage .container-fluid#services #serviceSlider .carousel-inner .carousel-item .row .right .d-flex .mask#mask-01 {
@@ -692,7 +694,18 @@ Author: hung.luong@matocreative.vn
         #homepage .container-fluid#career .content > .row > .left h1 {
           color: #EF4625; }
         #homepage .container-fluid#career .content > .row > .left p {
-          color: #999; }
+          color: #999;
+          padding-left: 35px;
+          padding-top: 15px; }
+          #homepage .container-fluid#career .content > .row > .left p i {
+            color: #EF4625;
+            margin-left: -13px;
+            -webkit-transform: translateY(2px);
+            -moz-transform: translateY(2px);
+            -ms-transform: translateY(2px);
+            -o-transform: translateY(2px);
+            transform: translateY(2px);
+            font-size: 1.5rem; }
         #homepage .container-fluid#career .content > .row > .right {
           margin-top: 50px; }
           #homepage .container-fluid#career .content > .row > .right .slide {
@@ -721,8 +734,8 @@ Author: hung.luong@matocreative.vn
                   -o-transition: all ease-in-out 300ms;
                   transition: all ease-in-out 300ms; }
                 #homepage .container-fluid#career .content > .row > .right .slide .carousel-inner .carousel-item .row .btn-link.active {
-                  color: #333;
-                  border: 1px solid #333; }
+                  color: #EF4625;
+                  border: 1px solid #EF4625; }
           #homepage .container-fluid#career .content > .row > .right .survey-control {
             padding-top: 30px; }
 
@@ -770,7 +783,7 @@ MOBILE DEVICES (Under 768px)
     margin-left: 0;
     margin-right: 0; }
   #homepage .cover .overlay {
-    left: 0; }
+    display: none; }
   #homepage .cover .content .row .left {
     padding-left: 50px; }
     #homepage .cover .content .row .left h1.title-lg {
@@ -781,10 +794,10 @@ MOBILE DEVICES (Under 768px)
     padding-left: 0;
     padding-right: 0; }
     #homepage .container-fluid#about .row .left .mask {
-      width: 50%;
-      margin-left: 50%; }
+      display: none; }
     #homepage .container-fluid#about .row .left .content {
       left: 15px;
+      top: 100px;
       padding-left: 30px;
       padding-right: 30px;
       color: #fff;
@@ -800,12 +813,12 @@ MOBILE DEVICES (Under 768px)
     #homepage .container-fluid#creators .owl-carousel .item {
       padding: 0 45px; }
       #homepage .container-fluid#creators .owl-carousel .item .mask {
-        height: 300px; }
+        height: 270px; }
     #homepage .container-fluid#creators .owl-carousel .owl-nav {
-      margin-left: 45px; }
+      margin-left: 0px; }
     #homepage .container-fluid#services {
-      padding-left: 15px;
-      padding-right: 15px; }
+      padding-left: 0px;
+      padding-right: 0px; }
     #homepage .container-fluid#career {
       height: auto;
       padding-bottom: 100px; }
